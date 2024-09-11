@@ -4,30 +4,12 @@
     "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
     "Source Han Sans CN", sans-serif;
 }
-
-.main-container {
-  overflow: hidden;
-}
-
-.main-container,
-.main-container * {
-  box-sizing: border-box;
-}
-
-input,
-select,
-textarea,
-button {
-  outline: 0;
-}
-
 .main-container {
   position: relative;
   width: 1366px;
   height: 768px;
   margin: 0 auto;
   background: url(../Drawables/TreeBG.jpg)
-  no-repeat center;
   overflow: hidden;
 }
 .flex-row-ca {

@@ -5,7 +5,8 @@
       "Source Han Sans CN", sans-serif;
   }
   
-  html, body {
+  html,
+  body {
     margin: 0;
     padding: 0;
     width: 100%;
@@ -15,8 +16,8 @@
   
   .main-container {
     display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
+    justify-content: center;
+    align-items: center;
     position: relative;
     width: 100vw;
     height: 100vh;
@@ -188,3 +189,4 @@
     background-size: cover;
     z-index: 6;
   }
+  

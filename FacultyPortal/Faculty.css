@@ -345,3 +345,23 @@
   text-decoration: underline; /* Add red underline on hover */
   text-decoration-color: #FB0000; /* Ensure the underline is red */
 }
+
+.create {
+  background-color: transparent; /* No background */
+  color: #000000; /* Red text */
+  border: none; /* No border */
+  font-size: 15px;
+  font-family: 'Montserrat', sans-serif; /* Ensure the font is sans-serif */
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  top: 10%;
+  left: 15%;
+  text-decoration: none; /* Remove the default underline */
+  padding: 0; /* Remove padding */
+}
+
+.create:hover {
+  text-decoration: underline; /* Add red underline on hover */
+  text-decoration-color: #0058fb; /* Ensure the underline is red */
+}

@@ -184,7 +184,7 @@
     height: 145px;
     top: 40px;
     left: 177px;
-    background: url(CSN\ logo.png) no-repeat center;
+    background: url(../Drawables/CSNLogo.png) no-repeat center;
     background-size: cover;
     z-index: 6;
   }

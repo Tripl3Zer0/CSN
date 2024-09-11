@@ -43,9 +43,10 @@ html, body {
 
 /* Header and Labels */
 .login {
-  font-size: 30px;
+  font-size: 40px;
   font-weight: 700;
   margin: 10px 0;
+  color: #000000;
 }
 
 .line {
@@ -58,7 +59,9 @@ html, body {
 .username, .password {
   font-size: 25px;
   font-weight: 700;
-  margin: 20px 0 10px 0;
+  margin: 20px 2 10px 0;
+  color: #0BD3D1;
+  padding-right: 300px;
 }
 
 /* Input fields */
@@ -66,7 +69,7 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 280px;
+  width: 420px;
   height: 56px;
   margin: 10px 0;
   padding: 0 6px;
@@ -91,9 +94,9 @@ html, body {
 }
 
 /* Buttons */
-.forgot, .create {
+.create {
   background-color: transparent;
-  color: #000000;
+  color: #0011ff;
   border: none;
   font-size: 15px;
   font-weight: 600;
@@ -101,6 +104,19 @@ html, body {
   text-decoration: none;
   padding: 0;
   margin: 5px;
+}
+
+.forgot {
+  background-color: transparent;
+  color: #ff0000;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 0;
+  margin: 5px;
+  padding-right: 300px;
 }
 
 .forgot:hover {

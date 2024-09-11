@@ -17,271 +17,56 @@ html, body {
   align-items: center;
   width: 100vw;
   height: 100vh;
-  background-image: url(../Drawables/ForgotBG.png);
+  background-image: url("../Drawables/ForgotBG.png");
   background-size: cover;
   overflow: hidden; /* Prevents scrollbars */
 }
-  }
-  .csnlogo {
-    border: none;
-    background: none;
-    padding: 0;
-    cursor: pointer;
-  }
-  .banner-container {
-    width: 100%;
-    height: 160px;
-    background-color: #a5ffc9;
-    display: flex;
-    position: fixed; 
-    top: 0;
-    left: 0;
-  }
-  .flex-row-ca {
-    position: relative;
-    width: 1366px;
-    height: 151px;
-    margin: 0 0 0 0;
-    z-index: 5;
-  }
-  .csnlogo {
-    position: fixed;
-    width: 159px;
-    height: 151px;
-    top: 0;
-    left: .5%;
-    background: url(../Drawables/CSNLogo.png)
-      no-repeat center;
-    background-size: cover;
-    z-index: 4;
-  }
-  .pqlogo {
-    position: fixed;
-    width: 149px;
-    height: 151px;
-    top: 0;
-    left: 91.5%;
-    background: url(../Drawables/PQLogo.png)
-      no-repeat center;
-    background-size: cover;
-    z-index: 5;
-  }
-  .bannerinfo {
-    position: fixed;
-    width: 1036px;
-    height: 88px;
-    top: 31px;
-    left: 25%;
-    font-family: Montserrat, var(--default-font-family);
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 29.256px;
-    text-align: center;
-    z-index: 3;
-  }
-  .header1 {
-    position: relative;
-    color: #000000;
-    font-family: Montserrat, var(--default-font-family);
-    font-size: 30px;
-    font-weight: 700;
-    line-height: 36px;
-    text-align: center;
-  }
-  .empty {
-    position: relative;
-    color: #000000;
-    font-family: Montserrat, var(--default-font-family);
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 29.256px;
-    text-align: center;
-  }
-  .header2 {
-    position: relative;
-    color: #000000;
-    font-family: Montserrat, var(--default-font-family);
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 29.256px;
-    text-align: center;
-    left: center;
-  }
-  .header3 {
-    position: relative;
-    color: #000000;
-    font-family: Montserrat, var(--default-font-family);
-    font-size: 15px;
-    font-weight: 700;
-    line-height: 29.256px;
-    text-align: center;
-  }
-  .empty-1 {
-    position: relative;
-    color: #000000;
-    font-family: Montserrat, var(--default-font-family);
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 29.256px;
-    text-align: center;
-  }
-  .rectangle {
-    position: relative;
-    width: 487px;
-    height: 528px;
-    margin: 37px 0 0 440px;
-    background: #ffffff;
-    z-index: 7;
-    border-radius: 30px;
-    box-shadow: 15px 15px 10px 0 rgba(0, 0, 0, 0.25);
-  }
-  .flex-column {
-    position: absolute;
-    width: 350px;
-    height: 395px;
-    top: 21px;
-    left: 68px;
-    font-size: 0px;
-    z-index: 13;
-  }
-  .forgot-password {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    position: relative;
-    width: 350px;
-    height: 37px;
-    margin: 0 0 0 0;
-    color: #000000;
-    font-family: Montserrat, var(--default-font-family);
-    font-size: 30px;
-    font-weight: 700;
-    line-height: 36.57px;
-    text-align: center;
-    white-space: nowrap;
-    letter-spacing: 6px;
-    z-index: 8;
-  }
-  .line {
-    position: relative;
-    width: 300px;
-    height: 1px;
-    margin: 6px 0 0 26px;
-    background: url(./assets/images/c4895595-28f4-4f4b-b36f-d91fff19b536.png)
-      no-repeat center;
-    background-size: cover;
-    z-index: 9;
-  }
-  .enter-email {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    position: relative;
-    width: 159px;
-    height: 30px;
-    margin: 106px 0 0 42px;
-    color: #0bd3d1;
-    font-family: Montserrat, var(--default-font-family);
-    font-size: 25px;
-    font-weight: 700;
-    line-height: 30px;
-    text-align: center;
-    white-space: nowrap;
-    z-index: 10;
-  }
-  .email-address {
-    display: flex;
-    align-items: center;
-    flex-wrap: nowrap;
-    gap: 10px;
-    position: relative;
-    width: 280px;
-    height: 56px;
-    margin: 7px 0 0 36px;
-    padding: 0 6px 0 6px;
-    cursor: pointer;
-    background: #ffffff;
-    border: 1px solid #666666;
-    z-index: 13;
-    border-radius: 4px;
-  }
-  .frame-2 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex-wrap: nowrap;
-    flex-shrink: 0;
-    gap: 10px;
-    position: relative;
-    width: 270px;
-    height: 30px;
-    padding: 0 4px 0 4px;
-    background: #ffffff;
-    z-index: 14;
-    overflow: hidden;
-  }
-  .enter-email-address {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    flex-shrink: 0;
-    flex-basis: auto;
-    position: relative;
-    width: 262px;
-    height: 30px;
-    color: #666666;
-    font-family: Montserrat, var(--default-font-family);
-    font-size: 25px;
-    font-weight: 600;
-    line-height: 30px;
-    text-align: center;
-    white-space: nowrap;
-    z-index: 15;
-  }
-  .rectangle-3 {
-    position: relative;
-    width: 279px;
-    height: 56px;
-    margin: 96px 0 0 36px;
-    cursor: pointer;
-    background: rgba(219, 251, 232, 0.75);
-    border: none;
-    z-index: 11;
-    border-radius: 40px;
-  }
-  .send-code {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    position: absolute;
-    width: 169px;
-    height: 37px;
-    top: 9px;
-    left: 55px;
-    color: #73a748;
-    font-family: Montserrat, var(--default-font-family);
-    font-size: 30px;
-    font-weight: 700;
-    line-height: 36.57px;
-    text-align: center;
-    white-space: nowrap;
-    z-index: 12;
-  }
-  .back {
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    position: absolute;
-    height: 18px;
-    top: 22px;
-    left: 15px;
-    color: #000000;
-    font-family: Montserrat, var(--default-font-family);
-    font-size: 15px;
-    font-weight: 800;
-    line-height: 18px;
-    text-align: left;
-    white-space: nowrap;
-    letter-spacing: 1.5px;
-    z-index: 16;
-  }
+/* Top Banner Styling */
+.top-banner {
+  position: fixed;
+  width: 100%;
+  height: 150px;
+  background-color: #DBFBE8;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+/* Banner Text Styling */
+.banner-text {
+  text-align: center;
+  flex: 1;
+}
+
+.banner-text h1 {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.banner-text p {
+  margin: 5px 0 0;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+/* Circular Logo Styling */
+.circular-logo {
+  width: 120px;
+  height: 120px;
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+}
+
+.circular-logo.left {
+  left: 30px;
+}
+
+.circular-logo.right {
+  right: 70px;
+}

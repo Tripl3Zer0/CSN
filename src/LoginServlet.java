@@ -11,8 +11,8 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // Serve the HTML file when accessed via GET request
-        request.getRequestDispatcher("/index.html").forward(request, response);
+        // Serve the Main.html file when accessed via GET request
+        request.getRequestDispatcher("/Main.html").forward(request, response);
     }
 
     @Override
@@ -23,8 +23,8 @@ public class LoginServlet extends HttpServlet {
 
         // Redirect based on the role selected
         if ("faculty".equals(role)) {
-            // Redirect to faculty-specific page (e.g., faculty dashboard)
-            response.sendRedirect("/Login");
+            // Redirect to Login.html for faculty
+            response.sendRedirect("/Main Portal/Login.html");
         } else if ("parent".equals(role)) {
             // Redirect to parent-specific page (e.g., parent dashboard)
             response.sendRedirect("/parent-dashboard");

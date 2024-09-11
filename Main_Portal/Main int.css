@@ -47,9 +47,15 @@
 }
 
 .faculty-button {
-    left: 36.6vw;
-    top: 26.4vh;
-    background: #23D3D0;
+            left: 36.6vw;
+            top: 26.4vh;
+            background: #23D3D0;
+            position: absolute;
+            padding: 10px 20px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
 }
 
 .parent-button {

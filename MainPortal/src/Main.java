@@ -28,7 +28,7 @@ public class Main extends HttpServlet {
 
         if ("faculty".equals(role)) {
             // Correct the redirection path
-            response.sendRedirect("../FacultyPortal/Faculty.html");
+            response.sendRedirect("../FacultyPortal/src/Faculty.html");
         } else if ("parent".equals(role)) {
             // Logic for parent role or redirection
             response.sendRedirect("Parent.html"); // Example: Parent redirection

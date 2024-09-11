@@ -22,33 +22,32 @@
     background: rgba(255, 255, 255, 0.70);
 }
 
-.circle, .logo {
+.circle {
     position: absolute;
     width: 12.2vw;
     height: 12.2vw;
-    left: 44.8vw;
+    left: 50%;
     top: 2.9vh;
+    transform: translateX(-50%);
     border-radius: 50%;
     background: white;
 }
 
-.faculty-button, .parent-button {
+.logo {
     position: absolute;
-    width: 26.9vw;
-    height: 6.6vh;
-    border-radius: 4.6vh;
-    border: 1px solid black;
-    line-height: 6.6vh; /* To vertically center text */
-    text-align: center;
-    color: white;
-    font-size: 4.7vh;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
+    width: 12.2vw;
+    height: 12.2vw;
+    left: 50%;
+    top: 1.2vh;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: white;
 }
 
+
 .faculty-button {
-            left: 36.6vw;
-            top: 26.4vh;
+            left: 48.4vw;
+            top: 80vh;
             background: #23D3D0;
             position: absolute;
             padding: 10px 20px;
@@ -64,7 +63,7 @@
     background: #74A74C;
 }
 
-.greeting, .instruction, .footer {
+.instruction, .footer {
     position: absolute;
     text-align: center;
     color: black;
@@ -74,12 +73,22 @@
 }
 
 .greeting {
-    top: 15.4vh;
-    font-size: 4.7vh;
+    top: 30vh;
+    font-size: 65px;
+    position: absolute;
+    text-align: center;
+    color: black;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
+
+
 .instruction {
-    top: 21.4vh;
+    top: 70vh;
     font-size: 1.8vh;
 }
 

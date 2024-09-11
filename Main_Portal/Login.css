@@ -12,9 +12,20 @@ html, body {
       "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
       "Source Han Sans CN", sans-serif;
 }
-
+.banner-container {
+    width: 100%;
+    height: 155px; /* Adjust height if needed */
+    background-color: #cdf8de; /* Set the background color of the banner */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 100;
+    text-align: center;
+}
 .main-container {
     /* Fullscreen background */
+    padding-top: 60px;
     position: absolute;
     top: 0;
     left: 0;

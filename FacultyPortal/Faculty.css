@@ -1,0 +1,300 @@
+:root {
+    --default-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFang SC",
+      "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
+      "Source Han Sans CN", sans-serif;
+  }
+  
+  .main-container {
+    overflow: hidden;
+  }
+  
+  .main-container,
+  .main-container * {
+    box-sizing: border-box;
+  }
+  
+  input,
+  select,
+  textarea,
+  button {
+    outline: 0;
+  }
+  
+  .main-container {
+    position: relative;
+    width: 1366px;
+    height: 768px;
+    margin: 0 auto;
+    background: #ffffff;
+    overflow: hidden;
+  }
+  .flex-row-ca {
+    position: relative;
+    width: 1366px;
+    height: 151px;
+    margin: 0 0 0 0;
+    z-index: 5;
+  }
+  .image-removebg-preview {
+    position: absolute;
+    width: 159px;
+    height: 151px;
+    top: 0;
+    left: 0;
+    background: url(./assets/images/b65d99a8b93337808d5db05f49178076a487ccb9.png)
+      no-repeat center;
+    background-size: cover;
+    z-index: 4;
+  }
+  .image {
+    position: absolute;
+    width: 149px;
+    height: 151px;
+    top: 0;
+    left: 1217px;
+    background: url(./assets/images/166f310ec281fa9c12dd92d82a9d457ad4078fdb.png)
+      no-repeat center;
+    background-size: cover;
+    z-index: 5;
+  }
+  .paranaque-city-center {
+    position: absolute;
+    width: 1036px;
+    height: 88px;
+    top: 31px;
+    left: 165px;
+    font-family: Montserrat, var(--default-font-family);
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 29.256px;
+    text-align: center;
+    z-index: 3;
+  }
+  .paranaque-center-for-children {
+    position: relative;
+    color: #000000;
+    font-family: Montserrat, var(--default-font-family);
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 36px;
+    text-align: center;
+  }
+  .empty {
+    position: relative;
+    color: #000000;
+    font-family: Montserrat, var(--default-font-family);
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 29.256px;
+    text-align: center;
+  }
+  .address {
+    position: relative;
+    color: #000000;
+    font-family: Montserrat, var(--default-font-family);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 29.256px;
+    text-align: center;
+  }
+  .email {
+    position: relative;
+    color: #000000;
+    font-family: Montserrat, var(--default-font-family);
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 29.256px;
+    text-align: center;
+  }
+  .empty-1 {
+    position: relative;
+    color: #000000;
+    font-family: Montserrat, var(--default-font-family);
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 29.256px;
+    text-align: center;
+  }
+  .rectangle {
+    position: relative;
+    width: 487px;
+    height: 528px;
+    margin: 41px 0 0 770px;
+    font-size: 0px;
+    background: #ffffff;
+    z-index: 6;
+    overflow: visible auto;
+    border-radius: 30px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25) inset;
+  }
+  .login {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+    width: 113px;
+    height: 37px;
+    margin: 26px 0 0 187px;
+    color: #000000;
+    font-family: Montserrat, var(--default-font-family);
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 36.57px;
+    text-align: center;
+    white-space: nowrap;
+    letter-spacing: 6px;
+    z-index: 7;
+  }
+  .line {
+    position: relative;
+    width: 63.016px;
+    height: 2.019px;
+    margin: 4.981px 0 0 214.984px;
+    background: url(./assets/images/8970451f-92c9-4c6a-b88a-1a2716a647c9.png)
+      no-repeat center;
+    background-size: cover;
+    z-index: 8;
+  }
+  .username {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+    width: 135px;
+    height: 30px;
+    margin: 36px 0 0 104px;
+    color: #0bd3d1;
+    font-family: Montserrat, var(--default-font-family);
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 30px;
+    text-align: center;
+    white-space: nowrap;
+    z-index: 9;
+  }
+  .username-2 {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 10px;
+    position: relative;
+    width: 280px;
+    height: 56px;
+    margin: 9px 0 0 104px;
+    padding: 0 6px 0 6px;
+    background: #ffffff;
+    border: 1px solid #666666;
+    z-index: 15;
+    overflow: hidden;
+    border-radius: 4px;
+  }
+  .username-input {
+    flex-shrink: 0;
+    position: absolute;
+    width: 280px;
+    height: 56px;
+    top: -1px;
+    left: -1px;
+    background: transparent;
+    border: none;
+    z-index: 18;
+    outline: none;
+  }
+  .frame-3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+    gap: 10px;
+    position: relative;
+    width: 218px;
+    height: 30px;
+    padding: 0 4px 0 4px;
+    background: #ffffff;
+    z-index: 16;
+    overflow: hidden;
+  }
+  .enter-username {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-shrink: 0;
+    flex-basis: auto;
+    position: relative;
+    width: 210px;
+    height: 30px;
+    color: #666666;
+    font-family: Montserrat, var(--default-font-family);
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 30px;
+    text-align: center;
+    white-space: nowrap;
+    z-index: 17;
+  }
+  .password {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+    width: 128px;
+    height: 30px;
+    margin: 19px 0 0 104px;
+    color: #0bd3d1;
+    font-family: Montserrat, var(--default-font-family);
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 30px;
+    text-align: center;
+    white-space: nowrap;
+    z-index: 10;
+  }
+  .password-4 {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 10px;
+    position: relative;
+    width: 280px;
+    height: 56px;
+    margin: 9px 0 0 104px;
+    padding: 0 6px 0 6px;
+    background: #ffffff;
+    border: 1px solid #666666;
+    z-index: 19;
+    overflow: hidden;
+    border-radius: 4px;
+  }
+  .password-input {
+    flex-shrink: 0;
+    position: absolute;
+    width: 280px;
+    height: 56px;
+    top: -1px;
+    left: -1px;
+    background: transparent;
+    border: none;
+    z-index: 22;
+    outline: none;
+  }
+  .frame-5 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+    gap: 10px;
+    position: relative;
+    width: 210px;
+    height: 30px;
+    padding: 0 4px 0 4px;
+    background: #ffffff;
+    z-index: 20;
+    overflow: hidden;
+  }
+  .enter-password {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;

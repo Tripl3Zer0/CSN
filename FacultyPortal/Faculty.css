@@ -6,11 +6,13 @@
 }
 .main-container {
   position: relative;
-  width: 1366px;
-  height: 768px;
+  width: 100vw;
+  height: 100vh;
   margin: 0 auto;
   background: url(../Drawables/TreeBG.jpg)
-  overflow: hidden;
+    no-repeat center;
+  background-size: cover;
+
 }
 .flex-row-ca {
   position: relative;

@@ -1,367 +1,163 @@
-:root {
-  --default-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFang SC",
-    "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
-    "Source Han Sans CN", sans-serif;
-}
-.main-container {
-  position: fixed; 
-  width: 100%;
-  height: 100vh;
-  background: url(../Drawables/TreeBG.jpg)
-    no-repeat center;
-  background-size: cover;
-  top: 0;
-  left: 0;
-}
-.csnlogo {
-  border: none;
-  background: none;
+/* Import Montserrat font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+/* Basic Reset */
+html, body {
+  margin: 0;
   padding: 0;
-  cursor: pointer;
-}
-.banner-container {
   width: 100%;
-  height: 160px;
-  background-color: #a5ffc9;
+  height: 100%;
+  font-family: 'Montserrat', sans-serif; /* Default font */
+}
+
+/* Main container for centering */
+.main-container {
   display: flex;
-  position: fixed; 
-  top: 0;
-  left: 0;
-}
-.flex-row-ca {
-  position: relative;
-  width: 1366px;
-  height: 151px;
-  margin: 0 0 0 0;
-  z-index: 5;
-}
-.csnlogo {
-  position: fixed;
-  width: 159px;
-  height: 151px;
-  top: 0;
-  left: .5%;
-  background: url(../Drawables/CSNLogo.png)
-    no-repeat center;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../Drawables/TreeBG.jpg");
   background-size: cover;
-  z-index: 4;
+  overflow: hidden; /* Prevents scrollbars */
 }
-.pqlogo {
-  position: fixed;
-  width: 149px;
-  height: 151px;
-  top: 0;
-  left: 91.5%;
-  background: url(../Drawables/PQLogo.png)
-    no-repeat center;
-  background-size: cover;
-  z-index: 5;
-}
-.bannerinfo {
-  position: fixed;
-  width: 1036px;
-  height: 88px;
-  top: 31px;
-  left: 25%;
-  font-family: Montserrat, var(--default-font-family);
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 29.256px;
-  text-align: center;
-  z-index: 3;
-}
-.header1 {
-  position: relative;
-  color: #000000;
-  font-family: Montserrat, var(--default-font-family);
-  font-size: 30px;
-  font-weight: 700;
-  line-height: 36px;
-  text-align: center;
-}
-.empty {
-  position: relative;
-  color: #000000;
-  font-family: Montserrat, var(--default-font-family);
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 29.256px;
-  text-align: center;
-}
-.header2 {
-  position: relative;
-  color: #000000;
-  font-family: Montserrat, var(--default-font-family);
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 29.256px;
-  text-align: center;
-  left: center;
-}
-.header3 {
-  position: relative;
-  color: #000000;
-  font-family: Montserrat, var(--default-font-family);
-  font-size: 15px;
-  font-weight: 700;
-  line-height: 29.256px;
-  text-align: center;
-}
-.empty-1 {
-  position: relative;
-  color: #000000;
-  font-family: Montserrat, var(--default-font-family);
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 29.256px;
-  text-align: center;
-}
+
+
+/* Login box styling */
 .loginbox {
-  position: relative;
   width: 487px;
   height: 528px;
-  margin: 39px 0 0 439px;
-  font-size: 0px;
   background: #ffffff;
-  z-index: 6;
-  overflow: visible auto;
   border-radius: 30px;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25) inset;
   text-align: center;
-  justify-content: center;
-  top: 10%;
-  left: 15%;
-}
-.login {
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  position: relative;
-  width: 113px;
-  height: 37px;
-  margin: 26px 0 0 187px;
-  color: #000000;
-  font-family: Montserrat, var(--default-font-family);
+  position: fixed; /* Fixes the position relative to the viewport */
+  top: 57%; /* Adjust this value to position the box vertically */
+  left: 50%; /* Centers the box horizontally */
+  transform: translate(-50%, -50%); /* Centers the box exactly in the viewport */
+  z-index: 3; /* Ensure it stays above other content */
+}
+
+
+/* Header and Labels */
+.login {
   font-size: 30px;
   font-weight: 700;
-  line-height: 36.57px;
-  text-align: center;
-  white-space: nowrap;
-  letter-spacing: 6px;
-  z-index: 7;
+  margin: 20px 0;
 }
+
 .line {
-  position: relative;
-  width: 63.016px;
-  height: 2.019px;
-  margin: 4.981px 0 0 214.984px;
-  background: url()
-    no-repeat center;
-  background-size: cover;
-  z-index: 8;
+  width: 63px;
+  height: 2px;
+  background-color: #000;
+  margin: 10px 0;
 }
-.username {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  position: relative;
-  width: 135px;
-  height: 30px;
-  margin: 36px 0 0 104px;
-  color: #0bd3d1;
-  font-family: Montserrat, var(--default-font-family);
+
+.username, .password {
   font-size: 25px;
   font-weight: 700;
-  line-height: 30px;
-  text-align: center;
-  white-space: nowrap;
-  z-index: 9;
+  margin: 20px 0 10px 0;
 }
-.username-2 {
+
+/* Input fields */
+.username-2, .password-4 {
   display: flex;
   align-items: center;
-  flex-wrap: nowrap;
-  gap: 10px;
-  position: relative;
+  justify-content: center;
   width: 280px;
   height: 56px;
-  margin: 9px 0 0 104px;
-  padding: 0 6px 0 6px;
+  margin: 0 auto;
+  padding: 0 6px;
   background: #ffffff;
   border: 1px solid #666666;
-  z-index: 15;
-  overflow: hidden;
   border-radius: 4px;
+  position: relative;
 }
-.username-input {
-  flex-shrink: 0;
-  position: absolute;
-  width: 280px;
-  height: 56px;
-  top: -1px;
-  left: -1px;
-  background: transparent;
+
+.username-input, .password-input {
+  width: 100%;
+  height: 100%;
   border: none;
-  z-index: 18;
   outline: none;
+  background: transparent;
 }
-.frame-3 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-wrap: nowrap;
-  flex-shrink: 0;
-  gap: 10px;
-  position: relative;
-  width: 218px;
-  height: 30px;
-  padding: 0 4px 0 4px;
-  background: #ffffff;
-  z-index: 16;
-  overflow: hidden;
-}
-.enter-username {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  flex-shrink: 0;
-  flex-basis: auto;
-  position: relative;
-  width: 210px;
-  height: 30px;
-  color: #666666;
-  font-family: Montserrat, var(--default-font-family);
-  font-size: 25px;
+
+/* Buttons */
+.forgot, .create {
+  background-color: transparent;
+  color: #000000;
+  border: none;
+  font-size: 15px;
   font-weight: 600;
-  line-height: 30px;
-  text-align: center;
-  white-space: nowrap;
-  z-index: 17;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 0;
 }
-.password {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  position: relative;
-  width: 128px;
-  height: 30px;
-  margin: 19px 0 0 104px;
-  color: #0bd3d1;
-  font-family: Montserrat, var(--default-font-family);
-  font-size: 25px;
-  font-weight: 700;
-  line-height: 30px;
-  text-align: center;
-  white-space: nowrap;
-  z-index: 10;
+
+.forgot:hover {
+  text-decoration: underline;
+  text-decoration-color: #FB0000;
 }
-.password-4 {
-  display: flex;
-  align-items: center;
-  flex-wrap: nowrap;
-  gap: 10px;
-  position: relative;
-  width: 280px;
-  height: 56px;
-  margin: 9px 0 0 104px;
-  padding: 0 6px 0 6px;
-  background: #ffffff;
-  border: 1px solid #666666;
-  z-index: 19;
-  overflow: hidden;
-  border-radius: 4px;
+
+.create:hover {
+  text-decoration: underline;
+  text-decoration-color: #0058fb;
 }
-.password-input {
-  flex-shrink: 0;
-  position: absolute;
-  width: 280px;
-  height: 56px;
-  top: -1px;
-  left: -1px;
-  background: transparent;
-  border: none;
-  z-index: 22;
-  outline: none;
-}
-.frame-5 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-wrap: nowrap;
-  flex-shrink: 0;
-  gap: 10px;
-  position: relative;
-  width: 210px;
-  height: 30px;
-  padding: 0 4px 0 4px;
-  background: #ffffff;
-  z-index: 20;
-  overflow: hidden;
-}
-.enter-password {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-}
+
 .loginbutton {
-  background-color: #c7fccf; /* Light green background */
-  color: #6CAC4C; /* Green text */
+  background-color: #c7fccf;
+  color: #6CAC4C;
   border: none;
-  border-radius: 50px; /* Fully rounded button */
+  border-radius: 50px;
   padding: 10px 30px;
   width: 250px;
   height: 50px;
-  font-size: 30px;
-  font-family: Montserrat;
-  font-weight: bold;
+  font-size: 20px; /* Adjusted for better fit */
+  font-weight: 700;
   cursor: pointer;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease;
-  top: 10%;
-  left: 15%;
 }
 
 .loginbutton:hover {
   background-color: #a7d3ae;
 }
 
-.forgot {
-  background-color: transparent; /* No background */
-  color: #FB0000; /* Red text */
-  border: none; /* No border */
-  font-size: 15px;
-  font-family: 'Montserrat', sans-serif; /* Ensure the font is sans-serif */
-  font-weight: bold;
-  cursor: pointer;
-  position: relative;
-  top: 10%;
-  left: 15%;
-  text-decoration: none; /* Remove the default underline */
-  padding: 0; /* Remove padding */
+
+/* Top Banner Styling */
+.top-banner {
+  position: fixed;
+  width: 100%;
+  height: 150px; /* Adjust the height as needed */
+  background-color: #DBFBE8; /* Light grey background, change as needed */
+  top: 0;
+  left: 0;
+  z-index: 2; /* Ensure it stays above other elements */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px; /* Add padding to the sides */
 }
 
-.forgot:hover {
-  text-decoration: underline; /* Add red underline on hover */
-  text-decoration-color: #FB0000; /* Ensure the underline is red */
+/* Circular Logo Styling */
+.circular-logo {
+  width: 120px; /* Adjust the size as needed */
+  height: 120px;
+  border-radius: 0%; /* Makes the logo circular */
+  background-size: 100%;
+  background-position: center;
+  position: fixed;
+  top: 15px; /* Position from the top of the banner */
 }
 
-.create {
-  background-color: transparent; /* No background */
-  color: #000000; /* Red text */
-  border: none; /* No border */
-  font-size: 15px;
-  font-family: 'Montserrat', sans-serif; /* Ensure the font is sans-serif */
-  font-weight: bold;
-  cursor: pointer;
-  position: relative;
-  top: 10%;
-  left: 15%;
-  text-decoration: none; /* Remove the default underline */
-  padding: 0; /* Remove padding */
+.circular-logo.left {
+  left: 30px; /* Position from the left edge of the viewport */
 }
 
-.create:hover {
-  text-decoration: underline; /* Add red underline on hover */
-  text-decoration-color: #0058fb; /* Ensure the underline is red */
+.circular-logo.right {
+  right: 30px; /* Position from the right edge of the viewport */
 }

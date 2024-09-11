@@ -1,55 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LOGIN</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,700;1,600&display=swap"/>
-    <link rel="stylesheet" href="Faculty.css"/>
-  </head>
-  <body>
-    <div class="main-container">
-      <div class="flex-row-ca">
-        <button class="csnlogo" onclick="location.href='https://github.com/Tripl3Zer0/CSN/blob/0e6ed10f03c600f64ca27c07fad122886825809c/MainPortal/Main.html';">
-          <img src="../Drawables/CSNLogo.png" alt="Click Me" style="width: 100px; height: auto;">
-        </button>
-        <div class="pqlogo"></div>
-        <div class="bannerinfo">
-          <span class="header1"
-            >PARAÑAQUE CITY CENTER FOR CHILDREN WITH SPECIAL NEEDS</span
-          ><span class="empty"> </span
-          ><span class="header2"
-            >Address: Col. E. de Leon Street, Barangay Sto. Niño, Parañaque City
-            1700 Philippines </span
-          ><span class="header3"
-            >Email: csncenterparanaque@gmail.com Contact No. +632-87066531</span
-          ><span class="empty-1"> </span>
-        </div>
-        <div class="banner-container"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LOGIN</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" />
+  <link rel="stylesheet" href="Faculty.css" />
+</head>
+<body>
+  <!-- Top Banner -->
+  <div class="top-banner">
+    <!-- Circular Logo on the Left -->
+    <div class="circular-logo left" style="background-image: url('../Drawables/CSNLogo.png');"></div>
+
+    <!-- Circular Logo on the Right -->
+    <div class="circular-logo right" style="background-image: url('../Drawables/PQLogo.png"></div>
+  </div>
+
+  <div class="main-container">
+    <div class="loginbox">
+      <span class="login">Login</span>
+      <div class="line"></div>
+      
+      <span class="username">Username</span>
+      <div class="username-2">
+        <input class="username-input" />
       </div>
-      <div class="loginbox">
-        <span class="login">Login</span>
-        <div class="line"></div>
-        <span class="username">Username</span>
-        <div class="username-2">
-          <input class="username-input" />
-          <div class="frame-3">
-            <span class="enter-username"></span>
-          </div>
-        </div>
-        <span class="password">Password</span>
-        <div class="password-4">
-          <input class="password-input" />
-          <div class="frame-5">
-            <span class="enter-password"></span>
-          </div>
-        </div>
-        <button class="forgot">Forgot password</button>
-        <button class="loginbutton">Login</button>
-        <button class="create">Create an account</button>
+      
+      <span class="password">Password</span>
+      <div class="password-4">
+        <input class="password-input" />
       </div>
-      <div class="rectangle-div"></div>
-      <div class="rectangle-div-6"></div>
+      
+      <button class="forgot">Forgot password</button>
+      <button class="loginbutton">Login</button>
+      <button class="create">Create an account</button>
     </div>
-  </body>
+  </div>
+</body>
 </html>

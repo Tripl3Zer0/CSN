@@ -327,13 +327,10 @@
 }
 
 .forgot {
-  color: #6CAC4C;
+  color: #FB0000;
   border: none;
-  padding: 10px 30px;
-  width: 250px;
-  height: 50px;
   font-size: 15px;
-  font-family: Montserrat, sans-serif;
+  font-family: Montserrat;
   font-weight: bold;
   cursor: pointer;
   top: 10%;

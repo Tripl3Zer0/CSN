@@ -93,32 +93,7 @@ html, body {
   transform: scale(1.2);
 }
 
-.rectangle {
-  width: 487px;
-  height: 528px;
-  background: #ffffff;
-  border-radius: 30px;
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25) inset;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  top: 57%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 3;
-}
-.flex-column {
-  position: absolute;
-  width: 350px;
-  height: 395px;
-  top: 21px;
-  left: 68px;
-  font-size: 0px;
-  z-index: 13;
-}
+
 .forgot-password {
   display: flex;
   align-items: flex-start;
@@ -242,4 +217,21 @@ html, body {
   text-align: center;
   white-space: nowrap;
   z-index: 12;
+}
+.loginbox {
+  width: 487px;
+  height: 528px;
+  background: #ffffff;
+  border-radius: 30px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25) inset;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 57%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
 }

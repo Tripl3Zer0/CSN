@@ -20,7 +20,7 @@
     position: relative;
     width: 100vw;
     height: 100vh;
-    background: url(Main\ BG.jpg) no-repeat center;
+    background-image: url(".csn/Drawbl"); no-repeat center;
     background-size: cover;
   }
   

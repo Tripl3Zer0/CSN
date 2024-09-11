@@ -33,9 +33,9 @@
           </span>
           <span class="csn">CSN</span>
           <span class="online-services-3"> Online Services </span>
-          <span class="terms-of-use">Terms of Use</span>
+          <span class="terms-of-use" onclick="openTerms()">Terms of Use</span>
           <span class="online-services-4"> and </span>
-          <span class="privacy-statement">Privacy Statement</span>
+          <span class="privacy-statement" onclick="openPrivacy()">Privacy Statement</span>
         </div>
 
         <div class="ellipse"></div>
@@ -53,6 +53,15 @@
         } else {
           window.location.href = 'Error.html'; // Example: Correct path for Error
         }
+      }
+
+      // JavaScript functions to handle button clicks for Terms of Use and Privacy Statement
+      function openTerms() {
+        window.location.href = 'TermsOfUse.html'; // Correct path to Terms of Use
+      }
+
+      function openPrivacy() {
+        window.location.href = 'PrivacyStatement.html'; // Correct path to Privacy Statement
       }
     </script>
   </body>

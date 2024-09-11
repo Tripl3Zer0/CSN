@@ -112,12 +112,14 @@ html, body {
   border: none;
   font-size: 15px;
   font-weight: 600;
+  font-style: italic; /* Makes the text italic */
   cursor: pointer;
   text-decoration: none;
   padding: 0;
   margin: 5px;
   padding-right: 300px;
 }
+
 
 .forgot:hover {
   text-decoration: underline;

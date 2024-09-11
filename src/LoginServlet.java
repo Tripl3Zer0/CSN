@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/login")
+@WebServlet("/Main")
 public class LoginServlet extends HttpServlet {
 
     @Override
@@ -24,7 +24,7 @@ public class LoginServlet extends HttpServlet {
         // Redirect based on the role selected
         if ("faculty".equals(role)) {
             // Redirect to faculty-specific page (e.g., faculty dashboard)
-            response.sendRedirect("");
+            response.sendRedirect("/Login");
         } else if ("parent".equals(role)) {
             // Redirect to parent-specific page (e.g., parent dashboard)
             response.sendRedirect("/parent-dashboard");

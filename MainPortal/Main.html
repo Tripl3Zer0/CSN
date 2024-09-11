@@ -16,18 +16,16 @@
         <span class="hi-csnian">Hi, CSNian!</span>
         <span class="tap-destination">Please click or tap your destination.</span>
 
-        <!-- Form submission to backend -->
-        <form action="/CSN/MainPortal/src/Main" method="POST">
-          <!-- Faculty Button -->
-          <button class="rectangle-1" name="role" value="faculty">
-            <span class="faculty">FACULTY</span>
-          </button>
+        <!-- Use JavaScript to handle button click events -->
+        <!-- Faculty Button -->
+        <button class="rectangle-1" onclick="redirectTo('faculty')">
+          <span class="faculty">FACULTY</span>
+        </button>
 
-          <!-- Parent Button -->
-          <button class="rectangle-2" name="role" value="parent">
-            <span class="parent">PARENT</span>
-          </button>
-        </form>
+        <!-- Parent Button -->
+        <button class="rectangle-2" onclick="redirectTo('parent')">
+          <span class="parent">PARENT</span>
+        </button>
 
         <div class="csn-online-services">
           <span class="online-services">
@@ -44,5 +42,18 @@
         <div class="picsart"></div>
       </div>
     </div>
+
+    <script>
+      // JavaScript function to handle redirection
+      function redirectTo(role) {
+        if (role === 'faculty') {
+          window.location.href = '../FacultyPortal/src/Faculty.html'; // Correct path to Faculty.html
+        } else if (role === 'parent') {
+          window.location.href = 'Parent.html'; // Example: Correct path for Parent
+        } else {
+          window.location.href = 'Error.html'; // Example: Correct path for Error
+        }
+      }
+    </script>
   </body>
 </html>

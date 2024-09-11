@@ -1,95 +1,177 @@
-/* Login.css */
-body, html {
+/* Ensure full height for html and body */
+html, body {
+    height: 100%;
     margin: 0;
     padding: 0;
-    width: 100%;
-    height: 100%;
-    font-family: 'Montserrat', sans-serif;
-    background: url('background.jpg') no-repeat center center fixed; 
-    background-size: cover;
+    overflow: hidden; /* Hide any scrollbars if not needed */
+}
+
+:root {
+    --default-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFang SC",
+      "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
+      "Source Han Sans CN", sans-serif;
 }
 
 .main-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    height: 100%;
-    padding: 20px;
-}
-
-.header {
-    text-align: center;
-    padding: 20px;
-    background-color: rgba(219, 251, 232, 0.8);
+    /* Fullscreen background */
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    height: 100%;
+    background: url(Tree\ BG.jpg) no-repeat center center;
+    background-size: cover; /* Make the background cover the entire screen */
+    overflow: hidden; /* Prevent any scroll bars */
 }
 
-.header-content {
+.flex-row-ca {
+    position: relative;
+    width: 100%; /* Adjust width */
+    max-width: 1366px; /* Set max width if needed */
+    height: 151px;
+    margin: 0 auto; /* Center the content horizontally */
+    z-index: 5;
+}
+
+.image-removebg-preview {
+    position: absolute;
+    width: 159px;
+    height: 151px;
+    top: 0;
+    left: 0;
+    background: url(CSN\ logo.png) no-repeat center;
+    background-size: cover;
+    z-index: 4;
+}
+
+.image {
+    position: absolute;
+    width: 149px;
+    height: 151px;
+    top: 0;
+    left: calc(100% - 149px); /* Positioned to the right edge */
+    background: url(PQ\ logo.png) no-repeat center;
+    background-size: cover;
+    z-index: 5;
+}
+
+.paranaque-city-center {
+    position: absolute;
+    width: 1036px;
+    height: 88px;
+    top: 31px;
+    left: 165px;
+    font-family: Montserrat, var(--default-font-family);
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 29.256px;
+    text-align: center;
+    z-index: 3;
+}
+
+.paranaque-center-special-needs,
+.empty,
+.address,
+.email,
+.empty-1 {
+    position: relative;
+    color: #000000;
+    font-family: Montserrat, var(--default-font-family);
+    font-weight: 700;
+    text-align: center;
+}
+
+/* Other styles for text elements */
+.paranaque-center-special-needs {
+    font-size: 30px;
+    line-height: 36px;
+}
+
+.address, .empty, .empty-1 {
+    font-size: 24px;
+    line-height: 29.256px;
+}
+
+.email {
+    font-size: 15px;
+    line-height: 29.256px;
+}
+
+.rectangle {
+    position: relative;
+    width: 487px;
+    height: 528px;
+    margin: 41px auto 0 auto; /* Center horizontally */
+    font-size: 0px;
+    background: #ffffff;
+    z-index: 6;
+    overflow: visible auto;
+    border-radius: 30px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25) inset;
+}
+
+.login {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+    width: 113px;
+    height: 37px;
+    margin: 26px 0 0 187px;
+    color: #000000;
+    font-family: Montserrat, var(--default-font-family);
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 36.57px;
+    text-align: center;
+    white-space: nowrap;
+    letter-spacing: 6px;
+    z-index: 7;
+}
+
+/* Other form elements */
+.username,
+.password {
+    color: #0bd3d1;
+    font-family: Montserrat, var(--default-font-family);
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 30px;
+    text-align: center;
+    white-space: nowrap;
+    margin: 36px 0 0 104px;
+}
+
+.username-2, .password-4 {
+    position: relative;
+    width: 280px;
+    height: 56px;
+    margin: 9px 0 0 104px;
+    background: #ffffff;
+    border: 1px solid #666666;
+    border-radius: 4px;
+    z-index: 15;
+}
+
+.username-input, .password-input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    z-index: 18;
+}
+
+.frame-3, .frame-5 {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.main-title {
-    font-size: 24px;
-    color: black;
-    margin: 10px 0;
-}
-
-.address, .contact-info {
-    font-size: 16px;
-    color: #333;
-}
-
-.csn-logo, .pq-logo {
-    width: 100px;
-    height: auto;
-    margin: 5px 0;
-}
-
-.login-box {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    width: 300px;
-}
-
-.login-title {
-    font-size: 22px;
-    margin-bottom: 20px;
-}
-
-.login-form {
-    display: flex;
-    flex-direction: column;
-}
-
-.login-form label {
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-.login-form input {
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.forgot-password, .account-action {
-    color: #0066cc;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-.login-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
+    width: 210px;
+    height: 30px;
+    padding: 0 4px;
+    background: #ffffff;
+    z-index: 16;
+    overflow: hidden;
 }

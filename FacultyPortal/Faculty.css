@@ -14,6 +14,12 @@
   top: 0;
   left: 0;
 }
+.csnlogo {
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}
 .banner-container {
   width: 100%;
   height: 160px;
@@ -31,33 +37,33 @@
   z-index: 5;
 }
 .csnlogo {
-  position: absolute;
+  position: fixed;
   width: 159px;
   height: 151px;
   top: 0;
-  left: 5px;
+  left: .5%;
   background: url(../Drawables/CSNLogo.png)
     no-repeat center;
   background-size: cover;
   z-index: 4;
 }
 .pqlogo {
-  position: absolute;
+  position: fixed;
   width: 149px;
   height: 151px;
   top: 0;
-  left: 1217px;
+  left: 91.5%;
   background: url(../Drawables/PQLogo.png)
     no-repeat center;
   background-size: cover;
   z-index: 5;
 }
-.address-info {
-  position: absolute;
+.bannerinfo {
+  position: fixed;
   width: 1036px;
   height: 88px;
   top: 31px;
-  left: 165px;
+  left: 25%;
   font-family: Montserrat, var(--default-font-family);
   font-size: 24px;
   font-weight: 700;
@@ -65,7 +71,7 @@
   text-align: center;
   z-index: 3;
 }
-.center-name {
+.header1 {
   position: relative;
   color: #000000;
   font-family: Montserrat, var(--default-font-family);
@@ -83,7 +89,7 @@
   line-height: 29.256px;
   text-align: center;
 }
-.address {
+.header2 {
   position: relative;
   color: #000000;
   font-family: Montserrat, var(--default-font-family);
@@ -91,8 +97,9 @@
   font-weight: 700;
   line-height: 29.256px;
   text-align: center;
+  left: center;
 }
-.email {
+.header3 {
   position: relative;
   color: #000000;
   font-family: Montserrat, var(--default-font-family);
@@ -110,7 +117,7 @@
   line-height: 29.256px;
   text-align: center;
 }
-.rectangle {
+.loginbox {
   position: relative;
   width: 487px;
   height: 528px;
@@ -121,6 +128,10 @@
   overflow: visible auto;
   border-radius: 30px;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25) inset;
+  text-align: center;
+  justify-content: center;
+  top: 10%;
+  left: 15%;
 }
 .login {
   display: flex;
@@ -292,3 +303,39 @@
   display: flex;
   align-items: flex-start;
   justify-content: center;
+}
+.loginbutton {
+  background-color: #c7fccf; /* Light green background */
+  color: #6CAC4C; /* Green text */
+  border: none;
+  border-radius: 50px; /* Fully rounded button */
+  padding: 10px 30px;
+  width: 250px;
+  height: 50px;
+  font-size: 30px;
+  font-family: Montserrat;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+  top: 10%;
+  left: 15%;
+}
+
+.loginbutton:hover {
+  background-color: #a7d3ae;
+}
+
+.forgot {
+  color: #6CAC4C;
+  border: none;
+  padding: 10px 30px;
+  width: 250px;
+  height: 50px;
+  font-size: 15px;
+  font-family: Montserrat, sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  top: 10%;
+  left: 15%;
+}

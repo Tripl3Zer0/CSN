@@ -1,102 +1,227 @@
-.full-screen-container {
+:root {
+    --default-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFang SC",
+      "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
+      "Source Han Sans CN", sans-serif;
+  }
+  
+  .main-container {
+    overflow: hidden;
+  }
+  
+  .main-container,
+  .main-container * {
+    box-sizing: border-box;
+  }
+  
+  input,
+  select,
+  textarea,
+  button {
+    outline: 0;
+  }
+  
+  .main-container {
     position: relative;
-    width: 100vw;
-    height: 100vh;
-    background-image: url('Main\ BG.jpg');
+    width: 1366px;
+    height: 768px;
+    margin: 0 auto;
+    background: url(Main\ BG.jpg)
+      no-repeat center;
     background-size: cover;
-    background-position: center;
-}
-
-.centered-container {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-}
-
-.overlay {
-    position: absolute;
-    width: 36.5vw; /* Approximation based on your px value */
-    height: 100vh;
-    left: 31.8vw;
-    top: 0;
-    background: rgba(255, 255, 255, 0.70);
-}
-
-.circle {
-    position: absolute;
-    width: 12.2vw;
-    height: 12.2vw;
-    left: 50%;
-    top: 2.9vh;
-    transform: translateX(-50%);
-    border-radius: 50%;
-    background: white;
-}
-
-.logo {
-    position: absolute;
-    width: 12.2vw;
-    height: 12.2vw;
-    left: 50%;
-    top: 1.2vh;
-    transform: translateX(-50%);
-    border-radius: 50%;
-    background: white;
-}
-
-
-.faculty-button {
-            left: 48.4vw;
-            top: 80vh;
-            background: #23D3D0;
-            position: absolute;
-            padding: 10px 20px;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-}
-
-.parent-button {
-    left: 36.7vw;
-    top: 36.2vh;
-    background: #74A74C;
-}
-
-.instruction, .footer {
-    position: absolute;
-    text-align: center;
-    color: black;
-    font-family: 'Montserrat', sans-serif;
+    overflow: hidden;
+  }
+  .rectangle {
+    position: relative;
+    width: 499px;
+    height: 768px;
+    margin: 0 0 0 434px;
+    font-size: 0px;
+    background: rgba(255, 255, 255, 0.7);
+    overflow: visible auto;
+  }
+  .hi-csnian {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+    width: 362px;
+    height: 78px;
+    margin: 209px 0 0 68px;
+    color: rgba(0, 0, 0, 0.8);
+    font-family: Montserrat, var(--default-font-family);
+    font-size: 64px;
     font-weight: 600;
-    width: 100%; /* Ensures text is centered regardless of container size */
-}
-
-.greeting {
-    top: 30vh;
-    font-size: 65px;
-    position: absolute;
+    line-height: 78px;
     text-align: center;
-    color: black;
-    font-family: 'Montserrat';
+    white-space: nowrap;
+    z-index: 7;
+  }
+  .tap-destination {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+    width: 440px;
+    height: 29px;
+    margin: 3px 0 0 29px;
+    color: #000000;
+    font-family: Montserrat, var(--default-font-family);
+    font-size: 24px;
     font-weight: 600;
-    width: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-
-
-.instruction {
-    top: 70vh;
-    font-size: 1.8vh;
-}
-
-.footer {
-    bottom: 4vh;
-    font-size: 1.0vh;
-}
-
-.link {
+    line-height: 29px;
+    text-align: center;
+    white-space: nowrap;
+    opacity: 0.8;
+    z-index: 8;
+  }
+  .rectangle-1 {
+    position: relative;
+    width: 367px;
+    height: 90px;
+    margin: 41px 0 0 66px;
+    cursor: pointer;
+    background: #23d3d0;
+    border: 1px solid #000000;
+    z-index: 2;
+    border-radius: 62.5px;
+  }
+  .faculty {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    position: absolute;
+    width: 298px;
+    height: 78px;
+    top: 5px;
+    left: 34px;
+    color: #ffffff;
+    font-family: Montserrat, var(--default-font-family);
+    font-size: 64px;
+    font-weight: 600;
+    line-height: 78px;
+    text-align: center;
+    white-space: nowrap;
+    z-index: 3;
+  }
+  .rectangle-2 {
+    position: relative;
+    width: 367px;
+    height: 90px;
+    margin: 43px 0 0 67px;
+    cursor: pointer;
+    background: #74a74c;
+    border: 1px solid #000000;
+    z-index: 4;
+    border-radius: 62.5px;
+  }
+  .parent {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    position: absolute;
+    width: 272px;
+    height: 78px;
+    top: 5px;
+    left: 47px;
+    color: #ffffff;
+    font-family: Montserrat, var(--default-font-family);
+    font-size: 64px;
+    font-weight: 600;
+    line-height: 78px;
+    text-align: center;
+    white-space: nowrap;
+    z-index: 5;
+  }
+  .csn-online-services {
+    position: relative;
+    width: 353px;
+    height: 55px;
+    margin: 55px 0 0 76px;
+    font-family: Montserrat, var(--default-font-family);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 17.066px;
+    text-align: center;
+    z-index: 9;
+  }
+  .online-services {
+    position: relative;
+    color: #000000;
+    font-family: Montserrat, var(--default-font-family);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 17.066px;
+    text-align: center;
+  }
+  .csn {
+    position: relative;
+    color: #000000;
+    font-family: Montserrat, var(--default-font-family);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 17.066px;
+    text-align: center;
+  }
+  .online-services-3 {
+    position: relative;
+    color: #000000;
+    font-family: Montserrat, var(--default-font-family);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 17.066px;
+    text-align: center;
+  }
+  .terms-of-use {
+    position: relative;
+    color: #000000;
+    font-family: Montserrat, var(--default-font-family);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 17.066px;
+    text-align: center;
     text-decoration: underline;
-}
+  }
+  .online-services-4 {
+    position: relative;
+    color: #000000;
+    font-family: Montserrat, var(--default-font-family);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 17.066px;
+    text-align: center;
+  }
+  .privacy-statement {
+    position: relative;
+    color: #000000;
+    font-family: Montserrat, var(--default-font-family);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 17.066px;
+    text-align: center;
+    text-decoration: underline;
+  }
+  .ellipse {
+    position: absolute;
+    width: 167px;
+    height: 167px;
+    top: 33px;
+    left: 165px;
+    background: rgba(255, 255, 255, 0.7);
+      no-repeat center;
+    background-size: cover;
+    z-index: 1;
+    border-radius: 50%;
+  }
+  .picsart {
+    position: absolute;
+    width: 145px;
+    height: 145px;
+    top: 40px;
+    left: 177px;
+    background: url(CSN\ logo.png)
+      no-repeat center;
+    background-size: cover;
+    z-index: 6;
+  }
+  

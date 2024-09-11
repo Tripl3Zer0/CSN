@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Full Screen Layout</title>
-<link rel="stylesheet" href="Main int.css">
-</head>
-<body>
-<div class="full-screen-container">
-    <div class="centered-container">
-        <div class="overlay"></div>
-        <div class="circle"></div>
-        <button class="faculty-button" type="button" onclick="location.href='https://zany-waffle-97j776jjvrvxfpg6r-5500.app.github.dev/LogIn/Login.html';">FACULTY</button>
-        <button class="parent-button" type="button" onclick="location.href='';">Parents</button>
-        <img class="logo" src="CSN logo.png" />
-        <div class="greeting">Hi, CSNian!</div>
-        <div class="instruction">Please click or tap your destination.</div>
-        <div class="footer">
-            By using this service, you understood and agree to the CSN Online Services <span class="link">Terms of Use</span> and <span class="link">Privacy Statement</span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSN</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" />
+    <link rel="stylesheet" href="Main int.css" />
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="rectangle">
+        <span class="hi-csnian">Hi, CSNian!</span
+        ><span class="tap-destination"
+          >Please click or tap your destination.</span
+        ><button class="rectangle-1">
+          <span class="faculty">FACULTY</span></button
+        ><button class="rectangle-2"><span class="parent">PARENT</span></button>
+        <div class="csn-online-services">
+          <span class="online-services"
+            >By using this service, you understood and agree to the </span
+          ><span class="csn">CSN</span
+          ><span class="online-services-3"> Online Services </span
+          ><span class="terms-of-use">Terms of Use</span
+          ><span class="online-services-4"> and </span
+          ><span class="privacy-statement">Privacy Statement</span>
         </div>
+        <div class="ellipse"></div>
+        <div class="picsart"></div>
+      </div>
     </div>
-</div>
-<script>
-    function adjustLayout() {
-        document.querySelector('.full-screen-container').style.height = window.innerHeight + 'px';
-        document.querySelector('.full-screen-container').style.width = window.innerWidth + 'px';
-    }
-    window.onresize = adjustLayout;
-    adjustLayout();
-</script>
-</body>
+  </body>
 </html>

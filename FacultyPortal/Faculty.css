@@ -5,14 +5,23 @@
     "Source Han Sans CN", sans-serif;
 }
 .main-container {
-  position: relative;
-  width: 100vw;
+  position: fixed; 
+  width: 100%;
   height: 100vh;
-  margin: 0 auto;
   background: url(../Drawables/TreeBG.jpg)
     no-repeat center;
   background-size: cover;
-
+  top: 0;
+  left: 0;
+}
+.banner-container {
+  width: 100%;
+  height: 160px;
+  background-color: #a5ffc9;
+  display: flex;
+  position: fixed; 
+  top: 0;
+  left: 0;
 }
 .flex-row-ca {
   position: relative;
@@ -26,7 +35,7 @@
   width: 159px;
   height: 151px;
   top: 0;
-  left: 0;
+  left: 5px;
   background: url(../Drawables/CSNLogo.png)
     no-repeat center;
   background-size: cover;

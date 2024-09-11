@@ -2,7 +2,7 @@
     position: fixed; 
     width: 100%;
     height: 100vh;
-    background: url(../Drawables/forgotbg.png)
+    background: url(../Drawables/ForgotBG.png)
       no-repeat center;
     background-size: cover;
     top: 0;
@@ -271,25 +271,3 @@
     letter-spacing: 1.5px;
     z-index: 16;
   }
-  .rectangle-4 {
-    position: absolute;
-    width: 1867.344px;
-    height: 1872.333px;
-    top: -543.905px;
-    left: -107.861px;
-    background: url(./assets/images/8d25f086-e17b-434e-adc5-834c5c488ec1.png)
-      no-repeat center;
-    background-size: cover;
-  }
-  .rectangle-5 {
-    position: absolute;
-    width: 1508.626px;
-    height: 1522.815px;
-    top: -93px;
-    left: -476px;
-    background: url(./assets/images/0ff8efc5-08c5-47bb-a8c1-7aa37376bf13.png)
-      no-repeat center;
-    background-size: cover;
-    z-index: 1;
-  }
-  .rectangle-6 {

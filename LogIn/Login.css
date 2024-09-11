@@ -1,101 +1,95 @@
-/* styles.css */
+/* Login.css */
 body, html {
     margin: 0;
     padding: 0;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    font-family: Montserrat, sans-serif;
+    width: 100%;
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+    background: url('background.jpg') no-repeat center center fixed; 
+    background-size: cover;
 }
 
 .main-container {
-    position: relative;
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
     height: 100%;
-    background: white;
-}
-
-.rotated-tree {
-    position: absolute;
-    width: 110vw; /* adjust as needed */
-    height: auto;
-    left: 19vw;
-    top: 50vh;
-    transform: rotate(-153.17deg) translate(-50%, -50%);
-    box-shadow: 30px 4px 10px rgba(0, 0, 0, 0.25);
-    border: 10px rgba(0, 0, 0, 0.20) solid;
+    padding: 20px;
 }
 
 .header {
-    position: absolute;
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(219, 251, 232, 0.8);
     width: 100%;
-    height: 151px;
-}
-
-.header-bg {
-    width: 100%;
-    height: 100%;
-    background: #DBFBE8;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .header-content {
-    position: absolute;
-    width: 76vw;
-    left: 12vw;
-    top: 2vh;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .main-title {
-    font-size: 30px;
+    font-size: 24px;
     color: black;
-    font-weight: 700;
+    margin: 10px 0;
 }
 
 .address, .contact-info {
-    display: block; /* Ensure these are on new lines */
-    font-size: 20px;
+    font-size: 16px;
+    color: #333;
 }
 
 .csn-logo, .pq-logo {
-    position: absolute;
-    width: auto;
-    height: 100%;
-}
-
-.csn-logo {
-    left: 0;
-}
-
-.pq-logo {
-    right: 0;
+    width: 100px;
+    height: auto;
+    margin: 5px 0;
 }
 
 .login-box {
-    position: absolute;
-    width: 36vw;
-    height: 69vh;
-    right: 15vw;
-    top: 25vh;
-    background: white;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) inset;
-    border-radius: 30px;
-    padding: 3vw;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 300px;
 }
 
 .login-title {
-    font-size: 30px;
-    letter-spacing: 6px;
+    font-size: 22px;
+    margin-bottom: 20px;
 }
 
-.login-line {
-    width: 15vw;
-    height: 2px;
-    background: #D9D9D9;
-    border: 1px #73A748 solid;
+.login-form {
+    display: flex;
+    flex-direction: column;
 }
 
-.input-label {
-    display: block;
-    font-size: 25px;
-    color: #0
+.login-form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.login-form input {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.forgot-password, .account-action {
+    color: #0066cc;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.login-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}

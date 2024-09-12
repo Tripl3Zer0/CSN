@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LOGIN</title>
+  <link rel="icon" href="../Drawables/CSNLogo.png" type="image/png" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" />
+  <link rel="stylesheet" href="Faculty.css" />
+</head>
+<body>
+  <!-- Top Banner -->
+  <div class="top-banner">
+    <!-- Circular Logo on the Left -->
+    <div class="circular-logo left" style="background-image: url('../Drawables/CSNLogo.png');"></div>
+
+    <!-- Banner Text -->
+    <div class="banner-text">
+      <h1>PARAÑAQUE CITY CENTER FOR CHILDREN WITH SPECIAL NEEDS</h1>
+      <p>Address: Col. E. de Leon Street, Barangay Sto. Niño, Parañaque City 1700 Philippines</p>
+      <p>Email: csncenterparanaque@gmail.com | Contact No: +632-8706 6531</p>
+    </div>
+
+    <!-- Circular Logo on the Right -->
+    <div class="circular-logo right" style="background-image: url('../Drawables/PQLogo.png');"></div>
+  </div>
+
+  <div class="main-container">
+    
+  <!-- Top Section -->
+  <div class="top-section">
+    <!-- Search Bar and Filters -->
+    <div class="search-filter">
+      <input type="text" placeholder="Search..." class="search-bar">
+      <select class="filter-dropdown">
+        <option value="" disabled selected>Filter by</option>
+        <optgroup label="Name">
+          <option value="a-z">Alphabetical A-Z</option>
+        </optgroup>
+        <optgroup label="Age">
+          <option value="1-18">1-18</option>
+        </optgroup>
+        <optgroup label="Address">
+          <option value="barangay1">Barangay 1</option>
+          <option value="barangay2">Barangay 2</option>
+          <option value="barangay3">Barangay 3</option>
+          <option value="barangay4">Barangay 4</option>
+          <option value="barangay5">Barangay 5</option>
+          <option value="barangay6">Barangay 6</option>
+          <option value="barangay7">Barangay 7</option>
+          <option value="barangay8">Barangay 8</option>
+          <option value="barangay9">Barangay 9</option>
+          <option value="barangay10">Barangay 10</option>
+        </optgroup>
+        <optgroup label="Diagnosis">
+          <option value="diagnosis1">Diagnosis 1</option>
+          <option value="diagnosis2">Diagnosis 2</option>
+          <option value="diagnosis3">Diagnosis 3</option>
+          <option value="diagnosis4">Diagnosis 4</option>
+          <option value="diagnosis5">Diagnosis 5</option>
+        </optgroup>
+      </select>
+    </div>
+
+    <!-- Add Button -->
+    <button class="add-btn">Add Student</button>
+  </div>
+
+  <!-- Table Section -->
+  <table>
+    <thead>
+      <tr>
+        <th>Student No.</th>
+        <th>Name</th>
+        <th>Birthday</th>
+        <th>Age</th>
+        <th>Address</th>
+        <th>Contact</th>
+        <th>Parent/Guardian</th>
+        <th>Diagnosis</th>
+        <th>Session</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Rows will be added dynamically -->
+      <tr>
+        <td>1</td>
+        <td>John Doe</td>
+        <td>2008-09-12</td>
+        <td>16</td>
+        <td>Barangay 3</td>
+        <td>+63 1234567890</td>
+        <td>Jane Doe</td>
+        <td>Diagnosis 1</td>
+        <td>5</td>
+        <td>
+          <button class="edit-btn">Edit</button>
+          <button class="delete-btn">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script src="script.js"></script>
+</body>
+</html>

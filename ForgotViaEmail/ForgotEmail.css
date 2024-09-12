@@ -21,6 +21,7 @@ html, body {
   background-size: cover;
   overflow: hidden; /* Prevents scrollbars */
 }
+
 /* Top Banner Styling */
 .top-banner {
   position: fixed;

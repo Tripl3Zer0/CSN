@@ -112,52 +112,7 @@ html, body {
   letter-spacing: 6px;
   z-index: 8;
 }
-.line {
-  position: relative;
-  width: 300px;
-  height: 1px;
-  margin: 6px 0 0 26px;
-  background: url(./assets/images/e67b28eb-8ca9-4f0b-b00f-570982afb11f.png)
-    no-repeat center;
-  background-size: cover;
-  z-index: 9;
-}
-.frame-2 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-wrap: nowrap;
-  flex-shrink: 0;
-  gap: 10px;
-  position: relative;
-  width: 270px;
-  height: 30px;
-  padding: 0 4px 0 4px;
-  background: #ffffff;
-  z-index: 14;
-  overflow: hidden;
-}
-.enter-email-address-span {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  flex-shrink: 0;
-  flex-basis: auto;
-  position: relative;
-  width: 262px;
-  height: 30px;
-  color: #666666;
-  font-family: Montserrat, var(--default-font-family);
-  font-size: 25px;
-  font-weight: 600;
-  line-height: 30px;
-  text-align: center;
-  white-space: nowrap;
-  z-index: 15;
-}
-
-
-.rectangle-button {
+.email-button {
   position: relative;
   width: 279px;
   height: 56px;
@@ -168,7 +123,17 @@ html, body {
   z-index: 11;
   border-radius: 40px;
 }
-
+.phone-button {
+  position: relative;
+  width: 279px;
+  height: 56px;
+  margin: 96px 0 0 36px;
+  cursor: pointer;
+  background: rgba(219, 251, 232, 0.75);
+  border: none;
+  z-index: 11;
+  border-radius: 40px;
+}
 .via-email-span {
   display: flex;
   align-items: flex-start;

@@ -224,3 +224,24 @@ html, body {
   transform: translate(-50%, -50%);
   z-index: 3;
 }
+
+.line-container {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.line-container::before,
+.line-container::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #000;
+  margin: 0 10px;
+}
+
+.line-container span {
+  padding: 0 10px;
+  font-size: 16px;
+  color: #000;
+}

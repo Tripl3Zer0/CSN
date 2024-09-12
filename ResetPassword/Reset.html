@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reset Password</title>
+  <link rel="icon" href="../Drawables/CSNLogo.png" type="image/png" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" />
+  <link rel="stylesheet" href="Reset.css" />
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const newPasswordInput = document.getElementById("new-password");
+      const confirmPasswordInput = document.getElementById("confirm-password");
+      const submitBtn = document.getElementById("submit-btn");
+      const successMessage = document.querySelector(".success-message");
+      const newPasswordError = document.querySelector(".new-password-error");
+      const confirmPasswordError = document.querySelector(".confirm-password-error");
+
+      submitBtn.addEventListener("click", function (event) {
+        let isValid = true;
+
+        // Reset error messages
+        newPasswordError.style.display = "none";
+        confirmPasswordError.style.display = "none";
+        newPasswordInput.style.borderColor = "#ccc";
+        confirmPasswordInput.style.borderColor = "#ccc";
+
+        // Validate New Password
+        if (newPasswordInput.value.trim() === "") {
+          newPasswordError.textContent = "Please enter a new password.";
+          newPasswordError.style.display = "block";
+          newPasswordInput.style.borderColor = "red";
+          isValid = false;
+        } else if (newPasswordInput.value.length < 8) {
+          newPasswordError.textContent = "Password must be at least 8 characters long.";
+          newPasswordError.style.display = "block";
+          newPasswordInput.style.borderColor = "red";
+          isValid = false;
+        }
+
+        // Validate Confirm Password
+        if (confirmPasswordInput.value.trim() === "") {
+          confirmPasswordError.textContent = "Please confirm your password.";
+          confirmPasswordError.style.display = "block";
+          confirmPasswordInput.style.borderColor = "red";
+          isValid = false;
+        } else if (confirmPasswordInput.value !== newPasswordInput.value) {
+          confirmPasswordError.textContent = "Passwords do not match.";
+          confirmPasswordError.style.display = "block";
+          confirmPasswordInput.style.borderColor = "red";
+          isValid = false;
+        }
+
+        if (!isValid) {
+          event.preventDefault();
+        } else {
+          successMessage.style.display = "block";
+          // Redirect to login page or another page if necessary
+          // window.location.href = "login.html";
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+  <!-- Top Banner -->
+  <div class="top-banner">
+    <div class="circular-logo left" style="background-image: url('../Drawables/CSNLogo.png');"></div>
+    <div class="banner-text">
+      <h1>PARAÑAQUE CITY CENTER FOR CHILDREN WITH SPECIAL NEEDS</h1>
+      <p>Address: Col. E. de Leon Street, Barangay Sto. Niño, Parañaque City 1700 Philippines</p>
+      <p>Email: csncenterparanaque@gmail.com | Contact No: +632-8706 6531</p>
+    </div>
+    <div class="circular-logo right" style="background-image: url('../Drawables/PQLogo.png');"></div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-container">
+    <div class="reset-container">
+      <h2>Reset Password</h2>
+
+      <!-- Input fields for New Password and Confirm Password -->
+      <div class="input-container">
+        <div class="input-group">
+          <label for="new-password">New Password:</label>
+          <input type="password" id="new-password" placeholder="Enter new password" required />
+          <small class="new-password-error error-message"></small>
+        </div>
+        <div class="input-group">
+          <label for="confirm-password">Confirm Password:</label>
+          <input type="password" id="confirm-password" placeholder="Confirm new password" required />
+          <small class="confirm-password-error error-message"></small>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" id="submit-btn">Submit</button>
+      <p class="success-message" style="display: none;">Your password has been reset successfully!</p>
+    </div>
+  </div>
+</body>
+</html>

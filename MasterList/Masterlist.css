@@ -17,7 +17,7 @@ html, body {
   align-items: center;
   width: 100vw;
   height: 100vh;
-  background-image: url("../Drawables/ForgotBG.png");
+  background-color: #E0E0E0;
   background-size: cover;
   overflow: hidden; /* Prevents scrollbars */
 }

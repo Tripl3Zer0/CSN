@@ -70,3 +70,112 @@ html, body {
 .circular-logo.right {
   right: 70px;
 }
+/* Forgot Password Container */
+.forgot-password-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+  }
+  
+  .forgot-password-container h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  
+  /* Option Container Styling */
+  .option-container {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .option-container label {
+    margin-right: 20px;
+    font-size: 14px;
+  }
+  
+  .option-container input[type="radio"] {
+    margin-right: 5px;
+  }
+  
+  /* Input Container Styling */
+  .input-container {
+    margin-bottom: 20px;
+  }
+  
+  .input-group {
+    margin-bottom: 15px;
+  }
+  
+  .input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  /* OTP Input Styling */
+  .otp-container {
+    margin-bottom: 20px;
+  }
+  
+  .otp-container label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  .otp-inputs {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .otp-box {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .otp-box:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  /* Submit Button Styling */
+  button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #c7fccf;
+    color: #6CAC4C;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #a7d3ae;
+  }
+  /* Styling for error message */
+.error-message {
+    font-size: 12px;
+    margin-top: 5px;
+    display: none; /* Hidden by default */
+  }
+  

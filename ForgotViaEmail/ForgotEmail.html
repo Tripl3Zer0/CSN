@@ -1,5 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const emailGroup = document.querySelector(".email-group");
+          const phoneGroup = document.querySelector(".phone-group");
+          const options = document.querySelectorAll('input[name="reset-option"]');
+          const phoneInput = document.getElementById("phone");
+          const errorMessage = document.querySelector(".error-message");
+          const submitBtn = document.getElementById("submit-btn");
+      
+          // Toggle between email and phone input fields
+          options.forEach(option => {
+            option.addEventListener("change", function () {
+              if (this.value === "email") {
+                emailGroup.style.display = "block";
+                phoneGroup.style.display = "none";
+              } else {
+                emailGroup.style.display = "none";
+                phoneGroup.style.display = "block";
+              }
+            });
+          });
+      
+          // Handle OTP input fields to move focus to the next input
+          const otpBoxes = document.querySelectorAll('.otp-box');
+          otpBoxes.forEach((box, index) => {
+            box.addEventListener('input', function () {
+              if (box.value.length === 1 && index < otpBoxes.length - 1) {
+                otpBoxes[index + 1].focus();  // Move to the next input
+              }
+            });
+          });
+      
+          // Validate phone input to ensure it starts with "09" and is 11 digits long
+          submitBtn.addEventListener("click", function (event) {
+            const phoneValue = phoneInput.value;
+            const phonePattern = /^09\d{9}$/;  // Regex pattern for "09" followed by 9 digits
+      
+            if (phoneGroup.style.display === "block" && !phonePattern.test(phoneValue)) {
+              errorMessage.style.display = "block";
+              event.preventDefault();  // Prevent form submission
+            } else {
+              errorMessage.style.display = "none";
+            }
+          });
+        });
+      </script>
+      
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -26,3 +73,51 @@
   </div>
 
   <div class="main-container">
+    <div class="forgot-password-container">
+        <h2>Forgot Password</h2>
+      
+        <!-- Options to choose Email or Phone -->
+        <div class="option-container">
+          <label>
+            <input type="radio" name="reset-option" value="email" checked />
+            Use Email
+          </label>
+          <label>
+            <input type="radio" name="reset-option" value="phone" />
+            Use Phone Number
+          </label>
+        </div>
+      
+        <!-- Input fields for Email or Phone -->
+        <div class="input-container">
+          <!-- Email input (shown by default) -->
+          <div class="input-group email-group">
+            <label for="email">Enter your email:</label>
+            <input type="email" id="email" placeholder="example@example.com" required />
+          </div>
+      
+          <!-- Phone input (hidden initially) -->
+          <div class="input-group phone-group" style="display: none;">
+            <label for="phone">Enter your phone number:</label>
+            <input type="tel" id="phone" placeholder="09123456789" required pattern="09[0-9]{9}" maxlength="11" />
+            <small class="error-message" style="display: none; color: red;">Phone number must start with 09 and be 11 digits long.</small>
+          </div>
+        </div>
+      
+        <!-- Verification code input (6 input boxes) -->
+        <div class="otp-container">
+          <label for="otp">Enter the verification code:</label>
+          <div class="otp-inputs">
+            <input type="text" maxlength="1" class="otp-box" required />
+            <input type="text" maxlength="1" class="otp-box" required />
+            <input type="text" maxlength="1" class="otp-box" required />
+            <input type="text" maxlength="1" class="otp-box" required />
+            <input type="text" maxlength="1" class="otp-box" required />
+            <input type="text" maxlength="1" class="otp-box" required />
+          </div>
+        </div>
+      
+        <!-- Submit Button -->
+        <button type="submit" id="submit-btn">Submit</button>
+      </div>
+      

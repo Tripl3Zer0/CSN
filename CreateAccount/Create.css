@@ -20,77 +20,65 @@ html, body {
   background-image: url("../Drawables/ForgotBG.png");
   background-size: cover;
   overflow: hidden;
+  padding-top: 150px;
 }
 
 /* Top Banner */
 .top-banner {
-  position: fixed;
-  width: 100%;
-  height: 150px;
-  background-color: #DBFBE8;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-}
-
-.banner-text {
-  text-align: center;
-  flex: 1;
-}
-
-.banner-text h1 {
-  margin: 0;
-  font-size: 30px;
-  font-weight: 700;
-}
-
-.banner-text p {
-  margin: 5px 0 0;
-  font-size: 16px;
-  font-weight: 400;
-}
-
-.circular-logo {
-  width: 120px;
-  height: 120px;
-  background-size: cover;
-  background-position: center;
-  position: absolute;
-}
-
-.circular-logo.left {
-  left: 30px;
-}
-
-.circular-logo.right {
-  right: 70px;
-}
-/* Basic Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    position: fixed;
+    width: 100%;
+    height: 150px;
+    background-color: #DBFBE8;
+    top: 0;
+    left: 0;
+    z-index: 2;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    height: 100vh;
+    padding: 0 20px;
   }
   
+  .banner-text {
+    text-align: center;
+    flex: 1;
+  }
+  
+  .banner-text h1 {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 700;
+  }
+  
+  .banner-text p {
+    margin: 5px 0 0;
+    font-size: 16px;
+    font-weight: 400;
+  }
+  
+  .circular-logo {
+    width: 120px;
+    height: 120px;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+  }
+  
+  .circular-logo.left {
+    left: 30px;
+  }
+  
+  .circular-logo.right {
+    right: 70px;
+  }
+  
+  /* Container for Create Account */
   .container {
     background-color: white;
-    padding: 20px;
+    padding: 40px; /* Increased padding for larger spacing */
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    width: 400px; /* Increased width */
+    margin-bottom: 50px; /* Optional: Adds some extra space at the bottom */
   }
   
   h1 {
@@ -99,6 +87,7 @@ html, body {
     font-size: 24px;
   }
   
+  /* Input Group Styles */
   .input-group {
     margin-bottom: 15px;
   }
@@ -113,10 +102,11 @@ html, body {
   input[type="email"],
   input[type="password"] {
     width: 100%;
-    padding: 8px;
+    padding: 10px; /* Increased padding */
     margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    font-size: 16px; /* Bigger font for better visibility */
   }
   
   .admin-code {
@@ -125,7 +115,7 @@ html, body {
   }
   
   .admin-code input {
-    width: 40px;
+    width: 50px; /* Increased width for better visibility */
     text-align: center;
     padding: 8px;
     border: 1px solid #ccc;
@@ -134,13 +124,13 @@ html, body {
   
   .create-account-btn {
     width: 100%;
-    padding: 10px;
+    padding: 12px; /* Increased padding */
     background-color: #28a745;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 18px; /* Increased font size */
   }
   
   .create-account-btn:hover {
@@ -161,4 +151,3 @@ html, body {
   .request-code:hover {
     text-decoration: underline;
   }
-  

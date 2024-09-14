@@ -10,8 +10,12 @@ public class CreateAccountServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Get form parameters
-        String name = request.getParameter("name");
+        // Get form parameters for name
+        String firstName = request.getParameter("first_name");
+        String middleName = request.getParameter("middle_name");  // Optional
+        String surname = request.getParameter("surname");
+
+        // Get other form parameters
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String confirmPassword = request.getParameter("confirm_password");
@@ -20,7 +24,8 @@ public class CreateAccountServlet extends HttpServlet {
         String adminCode = request.getParameter("adminCode");
 
         // Validate input
-        if (name == null || name.isEmpty() ||
+        if (firstName == null || firstName.isEmpty() ||
+            surname == null || surname.isEmpty() ||
             email == null || email.isEmpty() ||
             password == null || password.isEmpty() ||
             confirmPassword == null || confirmPassword.isEmpty() ||

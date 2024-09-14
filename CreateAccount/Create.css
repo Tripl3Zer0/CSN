@@ -8,6 +8,7 @@ html, body {
   width: 100%;
   height: 100%;
   font-family: 'Montserrat', sans-serif;
+  overflow: hidden; /* Prevent scrolling */
 }
 
 /* Main Container */
@@ -20,7 +21,8 @@ html, body {
   background-image: url("../Drawables/Create.jpg");
   background-size: cover;
   overflow: hidden;
-  padding-top: 150px;
+  padding-top: 100px;
+  animation: backgroundFade 2s ease-in-out;
 }
 
 /* Top Banner */
@@ -36,118 +38,142 @@ html, body {
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
-  }
-  
-  .banner-text {
-    text-align: center;
-    flex: 1;
-  }
-  
-  .banner-text h1 {
-    margin: 0;
-    font-size: 30px;
-    font-weight: 700;
-  }
-  
-  .banner-text p {
-    margin: 5px 0 0;
-    font-size: 16px;
-    font-weight: 400;
-  }
-  
-  .circular-logo {
-    width: 120px;
-    height: 120px;
-    background-size: cover;
-    background-position: center;
-    position: absolute;
-  }
-  
-  .circular-logo.left {
-    left: 30px;
-  }
-  
-  .circular-logo.right {
-    right: 70px;
-  }
-  
-  /* Container for Create Account */
-  .container {
+}
+
+.banner-text h1 {
+    animation: fadeIn 1.5s ease-in;
+}
+
+.banner-text {
+  text-align: center;
+  flex: 1;
+}
+
+.banner-text h1 {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.banner-text p {
+  margin: 5px 0 0;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.circular-logo {
+  width: 120px;
+  height: 120px;
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+}
+
+.circular-logo.left {
+  left: 30px;
+}
+
+.circular-logo.right {
+  right: 70px;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes slideUp {
+    0% { transform: translateY(50px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+.container {
     background-color: white;
-    padding: 40px; /* Increased padding for larger spacing */
+    padding: 40px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    width: 400px; /* Increased width */
-    margin-bottom: 50px; /* Optional: Adds some extra space at the bottom */
-  }
-  
-  h1 {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 24px;
-  }
-  
-  /* Input Group Styles */
-  .input-group {
-    margin-bottom: 15px;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
-  
-  input[type="text"],
-  input[type="email"],
-  input[type="password"] {
+    width: 500px;
+    margin-bottom: 50px;
+    animation: slideUp 1s ease-out;
+}
+
+/* Animated Input Fields */
+.input-animated {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    font-size: 16px;
+    padding: 12px;
     width: 100%;
-    padding: 10px; /* Increased padding */
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px; /* Bigger font for better visibility */
-  }
-  
-  .admin-code {
+    margin-left: -3%;
+}
+
+.input-animated:focus {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Admin Code Input */
+.admin-code {
     display: flex;
     justify-content: space-between;
-  }
-  
-  .admin-code input {
-    width: 50px; /* Increased width for better visibility */
+    gap: 8px; /* Adding space between the boxes */
+}
+
+.admin-code input {
+    width: 50px; /* Adjusting the width for all 6 boxes to fit horizontally */
     text-align: center;
-    padding: 8px;
+    padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
-  }
-  
-  .create-account-btn {
+    font-size: 20px; /* Bigger font for better visibility */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.admin-code input:focus {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Animated Button */
+.animated-btn {
     width: 100%;
-    padding: 12px; /* Increased padding */
+    padding: 12px;
     background-color: #28a745;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 18px; /* Increased font size */
-  }
-  
-  .create-account-btn:hover {
+    font-size: 18px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.animated-btn:hover {
     background-color: #218838;
-  }
-  
-  .right-align {
+    transform: translateY(-3px);
+}
+
+/* Keyframes for Background Animation */
+@keyframes backgroundFade {
+    0% { background-position: top left; }
+    100% { background-position: bottom right; }
+}
+
+.right-align {
     text-align: right;
     margin-bottom: 20px;
-  }
-  
-  .request-code {
+}
+
+.request-code {
     color: #007bff;
     cursor: pointer;
     text-decoration: none;
-  }
-  
-  .request-code:hover {
+}
+
+.request-code:hover {
     text-decoration: underline;
-  }
+}
+
+#error-message {
+  font-weight: bold;
+  color: red;
+  margin-bottom: 10px;
+}

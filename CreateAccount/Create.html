@@ -3,40 +3,69 @@
 <head>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-    const codeInputs = document.querySelectorAll(".code-box");
-  
-    codeInputs.forEach((input, index) => {
-      input.addEventListener("input", (e) => {
-        if (e.target.value.length === 1 && index < codeInputs.length - 1) {
-          codeInputs[index + 1].focus();
-        }
-      });
-  
-      input.addEventListener("keydown", (e) => {
-        if (e.key === "Backspace" && e.target.value === "") {
-          if (index > 0) {
-            codeInputs[index - 1].focus();
-            codeInputs[index - 1].value = "";  // Clear previous box on backspace
-          }
-        }
-      });
-    });
-  });
-    </script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Create Account</title>
-  <link rel="icon" href="../Drawables/CSNLogo.png" type="image/png" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" />
-  <link rel="stylesheet" href="Create.css" />
+            const codeInputs = document.querySelectorAll(".code-box");
 
+            codeInputs.forEach((input, index) => {
+                input.addEventListener("input", (e) => {
+                    if (e.target.value.length === 1 && index < codeInputs.length - 1) {
+                        codeInputs[index + 1].focus();
+                    }
+                });
+
+                input.addEventListener("keydown", (e) => {
+                    if (e.key === "Backspace" && e.target.value === "") {
+                        if (index > 0) {
+                            codeInputs[index - 1].focus();
+                            codeInputs[index - 1].value = "";  // Clear previous box on backspace
+                        }
+                    }
+                });
+            });
+
+            // Scroll-like animation for request code
+            const requestCode = document.querySelector(".request-code");
+            const messages = ["Request Code", "Code Sent", "Resend Code"];
+            let currentIndex = 0;
+
+            requestCode.addEventListener("click", () => {
+                currentIndex = (currentIndex + 1) % messages.length;
+                requestCode.textContent = messages[currentIndex];
+                requestCode.classList.add("scroll-animation");
+
+                setTimeout(() => {
+                    requestCode.classList.remove("scroll-animation");
+                }, 1000); // Adjust timing for scroll effect duration
+            });
+
+            // Validation for passwords
+            const form = document.getElementById('create-account-form');
+            const password = document.getElementById('password');
+            const confirmPassword = document.getElementById('confirm_password');
+            const errorDisplay = document.getElementById('error-message');
+
+            form.addEventListener('submit', function(event) {
+                if (password.value !== confirmPassword.value) {
+                    errorDisplay.textContent = "Passwords do not match.";
+                    errorDisplay.style.display = 'block';
+                    event.preventDefault(); // Prevent form submission if passwords do not match
+                } else {
+                    errorDisplay.style.display = 'none';
+                }
+            });
+        });
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Account</title>
+    <link rel="icon" href="../Drawables/CSNLogo.png" type="image/png" />
+    <link rel="stylesheet" href="Create.css" />
 </head>
 <body>
   <!-- Top Banner -->
   <div class="top-banner">
     <div class="circular-logo left" style="background-image: url('../Drawables/CSNLogo.png');"></div>
     <div class="banner-text">
-      <h1>PARAÑAQUE CITY CENTER FOR CHILDREN WITH SPECIAL NEEDS</h1>
+      <h1 class="fade-in">PARAÑAQUE CITY CENTER FOR CHILDREN WITH SPECIAL NEEDS</h1>
       <p>Address: Col. E. de Leon Street, Barangay Sto. Niño, Parañaque City 1700 Philippines</p>
       <p>Email: csncenterparanaque@gmail.com | Contact No: +632-8706 6531</p>
     </div>
@@ -45,58 +74,61 @@
 
   <!-- Main Content -->
   <div class="main-container">
-    <div class="container">
+    <div class="container slide-up">
       <h1>Create Account</h1>
+
+      <!-- Error Message Display -->
+      <p id="error-message" style="color: red; display: none;"></p>
 
       <form action="createAccount" method="post" id="create-account-form">
         <div class="input-group">
           <label for="first_name">First Name</label>
-          <input type="text" id="first_name" name="first_name" required />
+          <input type="text" id="first_name" name="first_name" class="input-animated" required />
         </div>
 
         <div class="input-group">
           <label for="middle_name">Middle Name (Optional)</label>
-          <input type="text" id="middle_name" name="middle_name" />
+          <input type="text" id="middle_name" name="middle_name" class="input-animated" />
         </div>
 
         <div class="input-group">
           <label for="surname">Surname</label>
-          <input type="text" id="surname" name="surname" required />
+          <input type="text" id="surname" name="surname" class="input-animated" required />
         </div>
 
         <div class="input-group">
           <label for="email">Email Address</label>
-          <input type="email" id="email" name="email" required />
+          <input type="email" id="email" name="email" class="input-animated" required />
         </div>
 
         <div class="input-group">
           <label for="password">Password</label>
-          <input type="password" id="password" name="password" required />
+          <input type="password" id="password" name="password" class="input-animated" minlength="8" required />
         </div>
 
         <div class="input-group">
           <label for="confirm_password">Confirm Password</label>
-          <input type="password" id="confirm_password" name="confirm_password" required />
+          <input type="password" id="confirm_password" name="confirm_password" class="input-animated" minlength="8" required />
         </div>
 
         <div class="input-group">
           <label>Admin Code</label>
           <div class="admin-code">
-            <input type="text" maxlength="1" class="code-box" required />
-            <input type="text" maxlength="1" class="code-box" required />
-            <input type="text" maxlength="1" class="code-box" required />
-            <input type="text" maxlength="1" class="code-box" required />
-            <input type="text" maxlength="1" class="code-box" required />
-            <input type="text" maxlength="1" class="code-box" required />
+            <input type="text" maxlength="1" class="code-box input-animated" required />
+            <input type="text" maxlength="1" class="code-box input-animated" required />
+            <input type="text" maxlength="1" class="code-box input-animated" required />
+            <input type="text" maxlength="1" class="code-box input-animated" required />
+            <input type="text" maxlength="1" class="code-box input-animated" required />
+            <input type="text" maxlength="1" class="code-box input-animated" required />
           </div>
         </div>
 
         <div class="input-group right-align">
-          <a href="#" class="request-code">Request for a code</a>
+          <a href="#" class="request-code">Request Code</a>
         </div>
 
         <div class="input-group">
-          <button type="submit" class="create-account-btn" onclick="window.location.href='/FacultyPortal/Faculty.html'">Create Account</button>
+          <button type="submit" class="create-account-btn animated-btn">Create Account</button>
         </div>
       </form>
 

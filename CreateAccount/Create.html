@@ -83,32 +83,38 @@
       <form action="createAccount" method="post" id="create-account-form">
         <div class="input-group">
           <label for="first_name">First Name</label>
-          <input type="text" id="first_name" name="first_name" class="input-animated" required />
+          <input type="text" id="first_name" name="first_name" class="input-animated" placeholder="Enter your first name" required />
         </div>
 
         <div class="input-group">
           <label for="middle_name">Middle Name (Optional)</label>
-          <input type="text" id="middle_name" name="middle_name" class="input-animated" />
+          <input type="text" id="middle_name" name="middle_name" class="input-animated" placeholder="Enter your middle name" />
         </div>
 
         <div class="input-group">
           <label for="surname">Surname</label>
-          <input type="text" id="surname" name="surname" class="input-animated" required />
+          <input type="text" id="surname" name="surname" class="input-animated" placeholder="Enter your surname" required />
         </div>
 
         <div class="input-group">
           <label for="email">Email Address</label>
-          <input type="email" id="email" name="email" class="input-animated" required />
+          <input type="email" id="email" name="email" class="input-animated" placeholder="Enter your email" required />
+        </div>
+
+        <div class="input-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" class="input-animated" pattern="[0-9]{11}" placeholder="09123456789" required />
+          <small>Format: 09123456789</small>
         </div>
 
         <div class="input-group">
           <label for="password">Password</label>
-          <input type="password" id="password" name="password" class="input-animated" minlength="8" required />
+          <input type="password" id="password" name="password" class="input-animated" placeholder="Enter your password" minlength="8" required />
         </div>
 
         <div class="input-group">
           <label for="confirm_password">Confirm Password</label>
-          <input type="password" id="confirm_password" name="confirm_password" class="input-animated" minlength="8" required />
+          <input type="password" id="confirm_password" name="confirm_password" class="input-animated" placeholder="Confirm your password" minlength="8" required />
         </div>
 
         <div class="input-group">

@@ -275,13 +275,12 @@ tr.fade-out {
   min-width: 160px;
   box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
   z-index: 1;
-  white-space: nowrap; /* Make it horizontal */
 }
 
 .dropdown-content button {
   padding: 10px;
   text-align: left;
-  display: inline-block;
+  width: 100%;
   background-color: white;
   border: none;
   cursor: pointer;
@@ -293,9 +292,7 @@ tr.fade-out {
 
 .dropdown-section .sub-dropdown-content {
   display: none;
-  position: absolute;
-  left: 100%;
-  top: 0;
+  margin-left: 10px;
 }
 
 .dropdown-section button {
@@ -303,9 +300,9 @@ tr.fade-out {
   color: white;
   padding: 10px;
   border: none;
+  width: 100%;
   text-align: left;
   cursor: pointer;
-  display: inline-block;
 }
 
 .dropdown-section .sub-dropdown-content button {

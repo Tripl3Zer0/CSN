@@ -22,21 +22,6 @@
                 });
             });
 
-            // Scroll-like animation for request code
-            const requestCode = document.querySelector(".request-code");
-            const messages = ["Request Code", "Code Sent", "Resend Code"];
-            let currentIndex = 0;
-
-            requestCode.addEventListener("click", () => {
-                currentIndex = (currentIndex + 1) % messages.length;
-                requestCode.textContent = messages[currentIndex];
-                requestCode.classList.add("scroll-animation");
-
-                setTimeout(() => {
-                    requestCode.classList.remove("scroll-animation");
-                }, 1000); // Adjust timing for scroll effect duration
-            });
-
             // Validation for passwords
             const form = document.getElementById('create-account-form');
             const password = document.getElementById('password');
@@ -50,6 +35,8 @@
                     event.preventDefault(); // Prevent form submission if passwords do not match
                 } else {
                     errorDisplay.style.display = 'none';
+                    // Show a popup on successful form submission
+                    alert("Account has been created successfully!");
                 }
             });
         });

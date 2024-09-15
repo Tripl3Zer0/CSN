@@ -4,36 +4,25 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.FirebaseOptions;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.UserRecord;
-import com.google.cloud.firestore.Firestore;
-import com.google.cloud.firestore.FirestoreOptions;
-import com.google.firebase.cloud.FirestoreClient;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.Map;
+import com.google.gson.Gson;
 
 @WebServlet("/createAccount")
 public class CreateAccountServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
+    // Your Supabase details
+    private static final String SUPABASE_URL = "https://ckoqxelxxcrzuntjhslk.supabase.co";
+    private static final String SUPABASE_API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNrb3F4ZWx4eGNyenVudGpoc2xrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjY0NDE3NTksImV4cCI6MjA0MjAxNzc1OX0.1x0HFX-cgLbXLOU9cWpVjr6-We-9JjHaorl2Sv2vG9k";
+    private static final String SUPABASE_TABLE = "users";
+
     @Override
-    public void init() throws ServletException {
-        super.init();
-
-        // Initialize Firebase SDK (Make sure you have your service account JSON key)
-        try {
-            FirebaseOptions options = FirebaseOptions.builder()
-                    .setCredentials(GoogleCredentials.fromStream(getServletContext().getResourceAsStream("/WEB-INF/serviceAccountKey.json")))
-                    .setDatabaseUrl("https://<your-project-id>.firebaseio.com")
-                    .build();
-            FirebaseApp.initializeApp(options);
-        } catch (Exception e) {
-            throw new ServletException("Unable to initialize Firebase", e);
-        }
-    }
-
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Get form parameters
         String firstName = request.getParameter("first_name");
@@ -62,29 +51,47 @@ public class CreateAccountServlet extends HttpServlet {
         }
 
         try {
-            // Create Firebase user
-            UserRecord.CreateRequest createRequest = new UserRecord.CreateRequest()
-                    .setEmail(email)
-                    .setPassword(password)
-                    .setDisplayName(firstName + " " + surname);
+            // Fix: Use URI to handle the deprecated URL(String) constructor
+            URI uri = new URI(SUPABASE_URL + "/rest/v1/" + SUPABASE_TABLE);
+            URL url = uri.toURL(); // Convert URI to URL
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("POST");
+            conn.setRequestProperty("apikey", SUPABASE_API_KEY);
+            conn.setRequestProperty("Content-Type", "application/json");
+            conn.setDoOutput(true);
 
-            UserRecord userRecord = FirebaseAuth.getInstance().createUser(createRequest);
-
-            // Save user details to Firestore
-            Firestore db = FirestoreClient.getFirestore();
+            // Create user data to send to Supabase
             Map<String, Object> user = new HashMap<>();
             user.put("first_name", firstName);
             user.put("middle_name", middleName);
             user.put("surname", surname);
             user.put("email", email);
+            user.put("password", password);  // In production, passwords should be hashed
             user.put("admin_code", adminCode);
 
-            db.collection("users").document(userRecord.getUid()).set(user);
+            // Convert to JSON
+            Gson gson = new Gson();
+            String jsonInputString = gson.toJson(user);
 
-            response.sendRedirect("success.jsp");
+            // Send request
+            try (OutputStream os = conn.getOutputStream()) {
+                byte[] input = jsonInputString.getBytes("utf-8");
+                os.write(input, 0, input.length);
+            }
+
+            int code = conn.getResponseCode();
+            if (code == HttpURLConnection.HTTP_OK) {
+                response.sendRedirect("success.jsp"); // Redirect to success page
+            } else {
+                response.sendRedirect("error.jsp?error=dbError"); // Redirect to error page if DB insertion fails
+            }
+
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+            response.sendRedirect("error.jsp?error=invalidURL"); // Redirect on invalid URL error
         } catch (Exception e) {
             e.printStackTrace();
-            response.sendRedirect("error.jsp?error=dbError");
+            response.sendRedirect("error.jsp?error=dbError"); // Redirect on general database error
         }
     }
 }

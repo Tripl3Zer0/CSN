@@ -1,0 +1,8 @@
+<servlet>
+    <servlet-name>CreateAccountServlet</servlet-name>
+    <servlet-class>com.yourpackage.CreateAccountServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>CreateAccountServlet</servlet-name>
+    <url-pattern>/createAccount</url-pattern>
+</servlet-mapping>

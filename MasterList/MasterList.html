@@ -27,66 +27,16 @@
   <div class="main-container">
     <!-- Top Section -->
     <div class="top-section">
-      <!-- Search Bar and Filters -->
       <div class="search-filter">
         <input type="text" id="searchInput" placeholder="Search..." class="search-bar" onkeyup="filterTable()">
         <!-- Filter Dropdown -->
         <div class="filter-dropdown">
-          <button class="dropdown-btn" onclick="toggleDropdown('filterDropdownContent')">Filter by</button>
-          <div id="filterDropdownContent" class="dropdown-content">
-            <!-- Birth Month Filter -->
-            <div class="dropdown-section">
-              <button class="sub-dropdown-btn" onclick="toggleDropdown('birthMonthDropdown')">Birth Month</button>
-              <div id="birthMonthDropdown" class="sub-dropdown-content">
-                <button onclick="applyFilter('month', 'April')">April</button>
-                <button onclick="applyFilter('month', 'November')">November</button>
-                <button onclick="applyFilter('month', 'July')">July</button>
-              </div>
-            </div>
-            <!-- Age Filter -->
-            <div class="dropdown-section">
-              <button class="sub-dropdown-btn" onclick="toggleDropdown('ageDropdown')">Age</button>
-              <div id="ageDropdown" class="sub-dropdown-content">
-                <button onclick="applyFilter('age', '16')">16</button>
-                <button onclick="applyFilter('age', '17')">17</button>
-                <button onclick="applyFilter('age', '18')">18</button>
-              </div>
-            </div>
-            <!-- Address Filter -->
-            <div class="dropdown-section">
-              <button class="sub-dropdown-btn" onclick="toggleDropdown('addressDropdown')">Address</button>
-              <div id="addressDropdown" class="sub-dropdown-content">
-                <button onclick="applyFilter('address', 'Moonwalk')">Moonwalk</button>
-                <button onclick="applyFilter('address', 'Sto. Niño')">Sto. Niño</button>
-                <button onclick="applyFilter('address', 'Tambo')">Tambo</button>
-              </div>
-            </div>
-            <!-- Diagnosis Filter -->
-            <div class="dropdown-section">
-              <button class="sub-dropdown-btn" onclick="toggleDropdown('diagnosisDropdown')">Diagnosis</button>
-              <div id="diagnosisDropdown" class="sub-dropdown-content">
-                <button onclick="applyFilter('diagnosis', 'Autism Spectrum Disorder')">Autism Spectrum Disorder</button>
-                <button onclick="applyFilter('diagnosis', 'Attention-deficit/hyperactivity disorder (ADHD)')">Attention-deficit/hyperactivity disorder (ADHD)</button>
-                <button onclick="applyFilter('diagnosis', 'Intellectual Disability')">Intellectual Disability</button>
-              </div>
-            </div>
-            <!-- Session Filter -->
-            <div class="dropdown-section">
-              <button class="sub-dropdown-btn" onclick="toggleDropdown('sessionDropdown')">Session</button>
-              <div id="sessionDropdown" class="sub-dropdown-content">
-                <button onclick="applyFilter('session', '3')">3</button>
-                <button onclick="applyFilter('session', '4')">4</button>
-                <button onclick="applyFilter('session', '5')">5</button>
-              </div>
-            </div>
-          </div>
+          <!-- Filter Buttons and Content here... -->
         </div>
-        <!-- Remove Filter Button -->
         <button class="remove-filter-btn" onclick="resetFilters()">Remove Filter</button>
       </div>
-
       <!-- Add Button -->
-      <button class="add-btn">Add Student</button>
+      <button class="add-btn" onclick="showAddForm()">Add Student</button>
     </div>
 
     <!-- Table Section -->
@@ -157,98 +107,111 @@
     <!-- Undo Button -->
     <button id="undo-btn" class="undo-btn" style="display:none;" onclick="undoDelete()">Undo</button>
 
+    <!-- Hidden Add Student Form -->
+    <div id="addStudentForm" style="display: none;">
+      <h3>Add Student Information</h3>
+      <form id="studentForm">
+        <label for="studentNo">Student No.</label>
+        <input type="number" id="studentNo" required><br>
+
+        <label for="name">Name</label>
+        <input type="text" id="name" required><br>
+
+        <label for="birthday">Birthday</label>
+        <input type="date" id="birthday" required><br>
+
+        <label for="age">Age</label>
+        <input type="number" id="age" required><br>
+
+        <label for="address">Address</label>
+        <input type="text" id="address" required><br>
+
+        <label for="contact">Contact</label>
+        <input type="text" id="contact" required><br>
+
+        <label for="guardian">Parent/Guardian</label>
+        <input type="text" id="guardian" required><br>
+
+        <label for="diagnosis">Diagnosis</label>
+        <input type="text" id="diagnosis" required><br>
+
+        <label for="session">Session</label>
+        <input type="number" id="session" required><br>
+
+        <button type="button" onclick="addStudent()">Add Student Information</button>
+      </form>
+    </div>
+
     <script>
       let deletedRow = null;
       let deletedIndex = null;
 
-      // Toggle the visibility of dropdown sections
-      function toggleDropdown(id) {
-        const dropdownContent = document.getElementById(id);
-        dropdownContent.style.display = (dropdownContent.style.display === 'block') ? 'none' : 'block';
+      // Function to show the Add Student form
+      function showAddForm() {
+        document.getElementById('addStudentForm').style.display = 'block';
       }
 
-      // Function to apply the filter and close the dropdown
-      function applyFilter(filterType, filterValue) {
-        filterTable(filterType, filterValue);
-        closeDropdowns();
+      // Function to add a student to the table
+      function addStudent() {
+        const studentNo = document.getElementById('studentNo').value;
+        const name = document.getElementById('name').value;
+        const birthday = document.getElementById('birthday').value;
+        const age = document.getElementById('age').value;
+        const address = document.getElementById('address').value;
+        const contact = document.getElementById('contact').value;
+        const guardian = document.getElementById('guardian').value;
+        const diagnosis = document.getElementById('diagnosis').value;
+        const session = document.getElementById('session').value;
+
+        // Create a new row
+        const table = document.getElementById('studentTable').getElementsByTagName('tbody')[0];
+        const newRow = table.insertRow();
+
+        // Insert cells in the new row
+        newRow.insertCell(0).innerHTML = studentNo;
+        newRow.insertCell(1).innerHTML = name;
+        newRow.insertCell(2).innerHTML = birthday;
+        newRow.insertCell(3).innerHTML = age;
+        newRow.insertCell(4).innerHTML = address;
+        newRow.insertCell(5).innerHTML = contact;
+        newRow.insertCell(6).innerHTML = guardian;
+        newRow.insertCell(7).innerHTML = diagnosis;
+        newRow.insertCell(8).innerHTML = session;
+
+        // Add action buttons (Edit and Delete)
+        const actionCell = newRow.insertCell(9);
+        actionCell.innerHTML = `
+          <button class="edit-btn">Edit</button>
+          <button class="delete-btn" onclick="confirmDelete(this)">Delete</button>
+        `;
+
+        // Hide the form after adding
+        document.getElementById('addStudentForm').style.display = 'none';
+
+        // Clear form fields
+        document.getElementById('studentForm').reset();
       }
 
-      // Function to filter the table based on the selected criteria
-      function filterTable(filterType, filterValue) {
-        const table = document.getElementById('studentTable');
-        const rows = table.getElementsByTagName('tr');
-        
-        for (let i = 1; i < rows.length; i++) {
-          let row = rows[i];
-          let shouldShow = false;
-
-          if (filterType === 'month') {
-            const birthMonth = row.cells[2].textContent.split(' ')[0]; // Get the birth month
-            shouldShow = (birthMonth === filterValue);
-          } else if (filterType === 'age') {
-            const age = row.cells[3].textContent;
-            shouldShow = (age === filterValue);
-          } else if (filterType === 'address') {
-            const address = row.cells[4].textContent;
-            shouldShow = address.includes(filterValue);
-          } else if (filterType === 'diagnosis') {
-            const diagnosis = row.cells[7].textContent;
-            shouldShow = (diagnosis === filterValue);
-          } else if (filterType === 'session') {
-            const session = row.cells[8].textContent;
-            shouldShow = (session === filterValue);
-          }
-
-          row.style.display = shouldShow ? '' : 'none';
-        }
-      }
-
-      // Reset filters to show all rows
-      function resetFilters() {
-        const table = document.getElementById('studentTable');
-        const rows = table.getElementsByTagName('tr');
-        for (let i = 1; i < rows.length; i++) {
-          rows[i].style.display = ''; // Show all rows
-        }
-        closeDropdowns(); // Close the dropdown after resetting filters
-      }
-
-      // Delete row and show Undo button
+      // Confirm delete function
       function confirmDelete(button) {
         const row = button.parentNode.parentNode;
-        deletedRow = row.cloneNode(true); // Clone the row
-        deletedIndex = row.rowIndex; // Save the row index
-        row.classList.add('fade-out'); // Add fade-out animation
+        deletedRow = row.cloneNode(true);
+        deletedIndex = row.rowIndex;
+        row.classList.add('fade-out');
 
-        // Wait for the animation to complete before removing the row
         setTimeout(() => {
           row.remove();
-          document.getElementById('undo-btn').style.display = 'block'; // Show the undo button
+          document.getElementById('undo-btn').style.display = 'block';
         }, 500);
       }
 
-      // Undo the deletion
+      // Undo delete function
       function undoDelete() {
         const table = document.getElementById('studentTable');
-        table.insertRow(deletedIndex).innerHTML = deletedRow.innerHTML; // Re-insert the deleted row
-        document.getElementById('undo-btn').style.display = 'none'; // Hide the undo button
+        table.insertRow(deletedIndex).innerHTML = deletedRow.innerHTML;
+        document.getElementById('undo-btn').style.display = 'none';
         deletedRow = null;
         deletedIndex = null;
-      }
-
-      // Close all open dropdowns
-      function closeDropdowns() {
-        const dropdowns = document.getElementsByClassName('dropdown-content');
-        for (let i = 0; i < dropdowns.length; i++) {
-          dropdowns[i].style.display = 'none';
-        }
-      }
-
-      // Close the dropdown when clicking outside of it
-      window.onclick = function(event) {
-        if (!event.target.matches('.dropdown-btn') && !event.target.matches('.sub-dropdown-btn')) {
-          closeDropdowns();
-        }
       }
     </script>
   </div>

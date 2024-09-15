@@ -147,19 +147,6 @@ html, body {
   padding: 5px;
 }
 
-/* Search Button */
-.search-btn {
-  padding: 5px 10px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-.search-btn:hover {
-  background-color: #45a049;
-}
-
 /* Add Button */
 .add-btn {
   padding: 10px 20px;
@@ -358,29 +345,43 @@ tr:nth-child(even) {
   background-color: #f9f9f9;
 }
 
-/* Edit and Delete Buttons */
-.edit-btn, .delete-btn {
-  padding: 5px 10px;
-  margin-right: 5px;
+/* Styling for Add Student Form */
+#addStudentForm {
+  background-color: #ffffff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  width: 50%;
+  margin: 20px auto;
+  display: none; /* Hidden by default */
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+}
+
+#addStudentForm h3 {
+  text-align: center;
+}
+
+#addStudentForm label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+#addStudentForm input {
+  width: calc(100% - 20px);
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+}
+
+#addStudentForm button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
   cursor: pointer;
 }
 
-.edit-btn {
-  background-color: #2196F3;
-  color: white;
-  border: none;
-}
-
-.delete-btn {
-  background-color: #f44336;
-  color: white;
-  border: none;
-}
-
-.edit-btn:hover {
-  background-color: #0b7dda;
-}
-
-.delete-btn:hover {
-  background-color: #d32f2f;
+#addStudentForm button:hover {
+  background-color: #45a049;
 }

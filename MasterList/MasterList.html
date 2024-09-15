@@ -16,7 +16,7 @@
       <div class="account-content">
         <div class="user-info">
           <div class="circular-user-image" style="background-image: url('../Drawables/ProfilePic.png');"></div>
-          <p class="user-name"><strong>Richard Villagen</strong> </p>
+          <p class="user-name"><strong>Richard Villagen</strong></p>
         </div>
         <button class="manage-btn">Manage Account</button>
         <button class="logout-btn" onclick="window.location.href='../FacultyPortal/Faculty.html';">Log Out</button>
@@ -85,8 +85,11 @@
         <button class="remove-filter-btn" onclick="resetFilters()">Remove Filter</button>
       </div>
 
-      <!-- Add Button -->
-      <button class="add-btn">Add Student</button>
+      <!-- Undo Button and Add Button -->
+      <div class="actions">
+        <button id="undo-btn" class="undo-btn" style="display:none;" onclick="undoDelete()">Undo</button>
+        <button class="add-btn">Add Student</button>
+      </div>
     </div>
 
     <!-- Table Section -->
@@ -154,12 +157,61 @@
       </tbody>
     </table>
 
-    <!-- Undo Button -->
-    <button id="undo-btn" class="undo-btn" style="display:none;" onclick="undoDelete()">Undo</button>
-
     <script>
       let deletedRow = null;
       let deletedIndex = null;
+
+      // Function to open the add student form
+      function openForm() {
+        document.getElementById("addStudentForm").style.display = "block";
+      }
+
+      // Function to close the add student form
+      function closeForm() {
+        document.getElementById("addStudentForm").style.display = "none";
+      }
+
+      // Function to add a new student to the table
+      function addStudent() {
+        const studentNo = document.getElementById("studentNo").value;
+        const name = document.getElementById("name").value;
+        const birthday = document.getElementById("birthday").value;
+        const age = document.getElementById("age").value;
+        const address = document.getElementById("address").value;
+        const contact = document.getElementById("contact").value;
+        const parentGuardian = document.getElementById("parentGuardian").value;
+        const diagnosis = document.getElementById("diagnosis").value;
+        const session = document.getElementById("session").value;
+
+        // Validate the input
+        if (!studentNo || !name || !birthday || !age || !address || !contact || !parentGuardian || !diagnosis || !session) {
+          alert("Please fill in all fields.");
+          return;
+        }
+
+        // Create a new row in the table
+        const table = document.getElementById("studentTable").getElementsByTagName('tbody')[0];
+        const newRow = table.insertRow();
+        newRow.innerHTML = `
+          <td>${studentNo}</td>
+          <td>${name}</td>
+          <td>${new Date(birthday).toLocaleDateString()}</td>
+          <td>${age}</td>
+          <td>${address}</td>
+          <td>${contact}</td>
+          <td>${parentGuardian}</td>
+          <td>${diagnosis}</td>
+          <td>${session}</td>
+          <td>
+            <button class="edit-btn">Edit</button>
+            <button class="delete-btn" onclick="confirmDelete(this)">Delete</button>
+          </td>
+        `;
+
+        // Clear the form and close the modal
+        document.getElementById("studentForm").reset();
+        closeForm();
+      }
 
       // Toggle the visibility of dropdown sections
       function toggleDropdown(id) {
@@ -173,8 +225,9 @@
         closeDropdowns();
       }
 
-      // Function to filter the table based on the selected criteria
-      function filterTable(filterType, filterValue) {
+      // Function to filter the table based on the selected criteria or search input
+      function filterTable(filterType = null, filterValue = null) {
+        const searchInput = document.getElementById('searchInput').value.toLowerCase();
         const table = document.getElementById('studentTable');
         const rows = table.getElementsByTagName('tr');
         
@@ -182,21 +235,35 @@
           let row = rows[i];
           let shouldShow = false;
 
-          if (filterType === 'month') {
-            const birthMonth = row.cells[2].textContent.split(' ')[0]; // Get the birth month
-            shouldShow = (birthMonth === filterValue);
-          } else if (filterType === 'age') {
-            const age = row.cells[3].textContent;
-            shouldShow = (age === filterValue);
-          } else if (filterType === 'address') {
-            const address = row.cells[4].textContent;
-            shouldShow = address.includes(filterValue);
-          } else if (filterType === 'diagnosis') {
-            const diagnosis = row.cells[7].textContent;
-            shouldShow = (diagnosis === filterValue);
-          } else if (filterType === 'session') {
-            const session = row.cells[8].textContent;
-            shouldShow = (session === filterValue);
+          // Search functionality: matches any field in the row
+          if (searchInput) {
+            let cells = row.getElementsByTagName('td');
+            for (let j = 0; j < cells.length; j++) {
+              if (cells[j].textContent.toLowerCase().includes(searchInput)) {
+                shouldShow = true;
+                break;
+              }
+            }
+          }
+
+          // Filter functionality
+          if (filterType && filterValue) {
+            if (filterType === 'month') {
+              const birthMonth = row.cells[2].textContent.split(' ')[0]; // Get the birth month
+              shouldShow = (birthMonth === filterValue);
+            } else if (filterType === 'age') {
+              const age = row.cells[3].textContent;
+              shouldShow = (age === filterValue);
+            } else if (filterType === 'address') {
+              const address = row.cells[4].textContent;
+              shouldShow = address.includes(filterValue);
+            } else if (filterType === 'diagnosis') {
+              const diagnosis = row.cells[7].textContent;
+              shouldShow = (diagnosis === filterValue);
+            } else if (filterType === 'session') {
+              const session = row.cells[8].textContent;
+              shouldShow = (session === filterValue);
+            }
           }
 
           row.style.display = shouldShow ? '' : 'none';
@@ -207,6 +274,7 @@
       function resetFilters() {
         const table = document.getElementById('studentTable');
         const rows = table.getElementsByTagName('tr');
+        document.getElementById('searchInput').value = ''; // Clear search input
         for (let i = 1; i < rows.length; i++) {
           rows[i].style.display = ''; // Show all rows
         }
@@ -250,6 +318,14 @@
           closeDropdowns();
         }
       }
+
+      // Close the modal if clicked outside
+      window.onclick = function(event) {
+        const modal = document.getElementById("addStudentForm");
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      };
     </script>
   </div>
 </body>

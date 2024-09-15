@@ -4,14 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Masterlist</title>
-  <link rel="icon" href="../Drawables/CSNLogo.png" type="image/png" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" />
+  <link rel="icon" href="../Drawables/CSNLogo.png');" type="image/png" />
   <link rel="stylesheet" href="Masterlist.css" />
 </head>
 <body>
   <!-- Top Banner -->
   <div class="top-banner">
-    <!-- Circular Logo on the Left -->
     <div class="rectangle left" style="background-image: url('../Drawables/CSNBox.png');"></div>
     <div class="account-dropdown">
       <button class="account-btn">Account</button>
@@ -21,7 +19,7 @@
           <p class="user-name"><strong>Richard Villagen</strong> </p>
         </div>
         <button class="manage-btn">Manage Account</button>
-        <button class="logout-btn">Log Out</button>
+        <button class="logout-btn" onclick="window.location.href='../FacultyPortal/Faculty.html';">Log Out</button>
       </div>
     </div>
   </div>
@@ -31,36 +29,60 @@
     <div class="top-section">
       <!-- Search Bar and Filters -->
       <div class="search-filter">
-        <input type="text" placeholder="Search..." class="search-bar">
-        <select class="filter-dropdown">
-          <option value="" disabled selected>Filter by</option>
-          <optgroup label="Name">
-            <option value="a-z">Alphabetical A-Z</option>
-          </optgroup>
-          <optgroup label="Age">
-            <option value="1-18">1-18</option>
-          </optgroup>
-          <optgroup label="Address">
-            <option value="barangay1">Barangay 1</option>
-            <option value="barangay2">Barangay 2</option>
-            <option value="barangay3">Barangay 3</option>
-            <option value="barangay4">Barangay 4</option>
-            <option value="barangay5">Barangay 5</option>
-            <option value="barangay6">Barangay 6</option>
-            <option value="barangay7">Barangay 7</option>
-            <option value="barangay8">Barangay 8</option>
-            <option value="barangay9">Barangay 9</option>
-            <option value="barangay10">Barangay 10</option>
-          </optgroup>
-          <optgroup label="Diagnosis">
-            <option value="diagnosis1">Diagnosis 1</option>
-            <option value="diagnosis2">Diagnosis 2</option>
-            <option value="diagnosis3">Diagnosis 3</option>
-            <option value="diagnosis4">Diagnosis 4</option>
-            <option value="diagnosis5">Diagnosis 5</option>
-          </optgroup>
-        </select>
-        <button class="search-btn">Search</button>
+        <input type="text" id="searchInput" placeholder="Search..." class="search-bar" onkeyup="filterTable()">
+        <!-- Filter Dropdown -->
+        <div class="filter-dropdown">
+          <button class="dropdown-btn" onclick="toggleDropdown('filterDropdownContent')">Filter by</button>
+          <div id="filterDropdownContent" class="dropdown-content">
+            <!-- Birth Month Filter -->
+            <div class="dropdown-section">
+              <button class="sub-dropdown-btn" onclick="toggleDropdown('birthMonthDropdown')">Birth Month</button>
+              <div id="birthMonthDropdown" class="sub-dropdown-content">
+                <button onclick="applyFilter('month', 'April')">April</button>
+                <button onclick="applyFilter('month', 'November')">November</button>
+                <button onclick="applyFilter('month', 'July')">July</button>
+              </div>
+            </div>
+            <!-- Age Filter -->
+            <div class="dropdown-section">
+              <button class="sub-dropdown-btn" onclick="toggleDropdown('ageDropdown')">Age</button>
+              <div id="ageDropdown" class="sub-dropdown-content">
+                <button onclick="applyFilter('age', '16')">16</button>
+                <button onclick="applyFilter('age', '17')">17</button>
+                <button onclick="applyFilter('age', '18')">18</button>
+              </div>
+            </div>
+            <!-- Address Filter -->
+            <div class="dropdown-section">
+              <button class="sub-dropdown-btn" onclick="toggleDropdown('addressDropdown')">Address</button>
+              <div id="addressDropdown" class="sub-dropdown-content">
+                <button onclick="applyFilter('address', 'Moonwalk')">Moonwalk</button>
+                <button onclick="applyFilter('address', 'Sto. Niño')">Sto. Niño</button>
+                <button onclick="applyFilter('address', 'Tambo')">Tambo</button>
+              </div>
+            </div>
+            <!-- Diagnosis Filter -->
+            <div class="dropdown-section">
+              <button class="sub-dropdown-btn" onclick="toggleDropdown('diagnosisDropdown')">Diagnosis</button>
+              <div id="diagnosisDropdown" class="sub-dropdown-content">
+                <button onclick="applyFilter('diagnosis', 'Autism Spectrum Disorder')">Autism Spectrum Disorder</button>
+                <button onclick="applyFilter('diagnosis', 'Cerebral Palsy')">Cerebral Palsy</button>
+                <button onclick="applyFilter('diagnosis', 'Down Syndrome')">Down Syndrome</button>
+              </div>
+            </div>
+            <!-- Session Filter -->
+            <div class="dropdown-section">
+              <button class="sub-dropdown-btn" onclick="toggleDropdown('sessionDropdown')">Session</button>
+              <div id="sessionDropdown" class="sub-dropdown-content">
+                <button onclick="applyFilter('session', '3')">3</button>
+                <button onclick="applyFilter('session', '4')">4</button>
+                <button onclick="applyFilter('session', '5')">5</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Remove Filter Button -->
+        <button class="remove-filter-btn" onclick="resetFilters()">Remove Filter</button>
       </div>
 
       <!-- Add Button -->
@@ -68,7 +90,7 @@
     </div>
 
     <!-- Table Section -->
-    <table>
+    <table id="studentTable">
       <thead>
         <tr>
           <th>Student No.</th>
@@ -87,22 +109,148 @@
         <tr>
           <td>1</td>
           <td>John Doe</td>
-          <td>2008-09-12</td>
+          <td>April 23, 2008</td>
           <td>16</td>
-          <td>Barangay 3</td>
-          <td>+63 1234567890</td>
+          <td>Moonwalk</td>
+          <td>+63 9123456789</td>
           <td>Jane Doe</td>
-          <td>Diagnosis 1</td>
+          <td>Autism Spectrum Disorder</td>
           <td>5</td>
           <td>
             <button class="edit-btn">Edit</button>
-            <button class="delete-btn">Delete</button>
+            <button class="delete-btn" onclick="confirmDelete(this)">Delete</button>
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Jane Smith</td>
+          <td>November 03, 2007</td>
+          <td>17</td>
+          <td>Sto. Niño</td>
+          <td>+63 9876543210</td>
+          <td>John Smith</td>
+          <td>Cerebral Palsy</td>
+          <td>4</td>
+          <td>
+            <button class="edit-btn">Edit</button>
+            <button class="delete-btn" onclick="confirmDelete(this)">Delete</button>
+          </td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Michael Lee</td>
+          <td>July 19, 2006</td>
+          <td>18</td>
+          <td>Tambo</td>
+          <td>+63 9234567890</td>
+          <td>Anna Lee</td>
+          <td>Down Syndrome</td>
+          <td>3</td>
+          <td>
+            <button class="edit-btn">Edit</button>
+            <button class="delete-btn" onclick="confirmDelete(this)">Delete</button>
           </td>
         </tr>
       </tbody>
     </table>
 
-    <script src="MasterList.js"></script>
+    <!-- Undo Button -->
+    <button id="undo-btn" class="undo-btn" style="display:none;" onclick="undoDelete()">Undo</button>
+
+    <script>
+      let deletedRow = null;
+      let deletedIndex = null;
+
+      // Toggle the visibility of dropdown sections
+      function toggleDropdown(id) {
+        const dropdownContent = document.getElementById(id);
+        dropdownContent.style.display = (dropdownContent.style.display === 'block') ? 'none' : 'block';
+      }
+
+      // Function to apply the filter and close the dropdown
+      function applyFilter(filterType, filterValue) {
+        filterTable(filterType, filterValue);
+        closeDropdowns();
+      }
+
+      // Function to filter the table based on the selected criteria
+      function filterTable(filterType, filterValue) {
+        const table = document.getElementById('studentTable');
+        const rows = table.getElementsByTagName('tr');
+        
+        for (let i = 1; i < rows.length; i++) {
+          let row = rows[i];
+          let shouldShow = false;
+
+          if (filterType === 'month') {
+            const birthMonth = row.cells[2].textContent.split(' ')[0]; // Get the birth month
+            shouldShow = (birthMonth === filterValue);
+          } else if (filterType === 'age') {
+            const age = row.cells[3].textContent;
+            shouldShow = (age === filterValue);
+          } else if (filterType === 'address') {
+            const address = row.cells[4].textContent;
+            shouldShow = address.includes(filterValue);
+          } else if (filterType === 'diagnosis') {
+            const diagnosis = row.cells[7].textContent;
+            shouldShow = (diagnosis === filterValue);
+          } else if (filterType === 'session') {
+            const session = row.cells[8].textContent;
+            shouldShow = (session === filterValue);
+          }
+
+          row.style.display = shouldShow ? '' : 'none';
+        }
+      }
+
+      // Reset filters to show all rows
+      function resetFilters() {
+        const table = document.getElementById('studentTable');
+        const rows = table.getElementsByTagName('tr');
+        for (let i = 1; i < rows.length; i++) {
+          rows[i].style.display = ''; // Show all rows
+        }
+        closeDropdowns(); // Close the dropdown after resetting filters
+      }
+
+      // Delete row and show Undo button
+      function confirmDelete(button) {
+        const row = button.parentNode.parentNode;
+        deletedRow = row.cloneNode(true); // Clone the row
+        deletedIndex = row.rowIndex; // Save the row index
+        row.classList.add('fade-out'); // Add fade-out animation
+
+        // Wait for the animation to complete before removing the row
+        setTimeout(() => {
+          row.remove();
+          document.getElementById('undo-btn').style.display = 'block'; // Show the undo button
+        }, 500);
+      }
+
+      // Undo the deletion
+      function undoDelete() {
+        const table = document.getElementById('studentTable');
+        table.insertRow(deletedIndex).innerHTML = deletedRow.innerHTML; // Re-insert the deleted row
+        document.getElementById('undo-btn').style.display = 'none'; // Hide the undo button
+        deletedRow = null;
+        deletedIndex = null;
+      }
+
+      // Close all open dropdowns
+      function closeDropdowns() {
+        const dropdowns = document.getElementsByClassName('dropdown-content');
+        for (let i = 0; i < dropdowns.length; i++) {
+          dropdowns[i].style.display = 'none';
+        }
+      }
+
+      // Close the dropdown when clicking outside of it
+      window.onclick = function(event) {
+        if (!event.target.matches('.dropdown-btn') && !event.target.matches('.sub-dropdown-btn')) {
+          closeDropdowns();
+        }
+      }
+    </script>
   </div>
 </body>
 </html>

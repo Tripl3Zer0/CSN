@@ -1,22 +1,38 @@
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.FirebaseOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.UserRecord;
+import com.google.cloud.firestore.Firestore;
+import com.google.cloud.firestore.FirestoreOptions;
+import com.google.firebase.cloud.FirestoreClient;
+import java.util.HashMap;
+import java.util.Map;
 
 @WebServlet("/createAccount")
 public class CreateAccountServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    // Database URL, username, and password (change these according to your setup)
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/csn_users_db"; // MySQL running inside Codespaces
-    private static final String DB_USER = "root"; // Use your MySQL root user
-    private static final String DB_PASSWORD = "your_mysql_password"; // Use the root password you set earlier
+    @Override
+    public void init() throws ServletException {
+        super.init();
+
+        // Initialize Firebase SDK (Make sure you have your service account JSON key)
+        try {
+            FirebaseOptions options = FirebaseOptions.builder()
+                    .setCredentials(GoogleCredentials.fromStream(getServletContext().getResourceAsStream("/WEB-INF/serviceAccountKey.json")))
+                    .setDatabaseUrl("https://<your-project-id>.firebaseio.com")
+                    .build();
+            FirebaseApp.initializeApp(options);
+        } catch (Exception e) {
+            throw new ServletException("Unable to initialize Firebase", e);
+        }
+    }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Get form parameters
@@ -45,22 +61,28 @@ public class CreateAccountServlet extends HttpServlet {
             return;
         }
 
-        // Insert data into the database
-        try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD)) {
-            String sql = "INSERT INTO users (first_name, middle_name, surname, email, password, admin_code) VALUES (?, ?, ?, ?, ?, ?)";
-            PreparedStatement statement = conn.prepareStatement(sql);
-            statement.setString(1, firstName);
-            statement.setString(2, middleName);
-            statement.setString(3, surname);
-            statement.setString(4, email);
-            statement.setString(5, password); // Note: Password should be hashed in a real-world application
-            statement.setString(6, adminCode);
+        try {
+            // Create Firebase user
+            UserRecord.CreateRequest createRequest = new UserRecord.CreateRequest()
+                    .setEmail(email)
+                    .setPassword(password)
+                    .setDisplayName(firstName + " " + surname);
 
-            int rowsInserted = statement.executeUpdate();
-            if (rowsInserted > 0) {
-                response.sendRedirect("success.jsp");
-            }
-        } catch (SQLException e) {
+            UserRecord userRecord = FirebaseAuth.getInstance().createUser(createRequest);
+
+            // Save user details to Firestore
+            Firestore db = FirestoreClient.getFirestore();
+            Map<String, Object> user = new HashMap<>();
+            user.put("first_name", firstName);
+            user.put("middle_name", middleName);
+            user.put("surname", surname);
+            user.put("email", email);
+            user.put("admin_code", adminCode);
+
+            db.collection("users").document(userRecord.getUid()).set(user);
+
+            response.sendRedirect("success.jsp");
+        } catch (Exception e) {
             e.printStackTrace();
             response.sendRedirect("error.jsp?error=dbError");
         }

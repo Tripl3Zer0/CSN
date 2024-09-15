@@ -88,7 +88,7 @@
       <!-- Undo Button and Add Button -->
       <div class="actions">
         <button id="undo-btn" class="undo-btn" style="display:none;" onclick="undoDelete()">Undo</button>
-        <button class="add-btn">Add Student</button>
+        <button class="add-btn" onclick="openForm()">Add Student</button>
       </div>
     </div>
 
@@ -120,7 +120,7 @@
           <td>Autism Spectrum Disorder</td>
           <td>5</td>
           <td>
-            <button class="edit-btn">Edit</button>
+            <button class="edit-btn" onclick="editStudent(this)">Edit</button>
             <button class="delete-btn" onclick="confirmDelete(this)">Delete</button>
           </td>
         </tr>
@@ -135,7 +135,7 @@
           <td>Attention-deficit/hyperactivity disorder (ADHD)</td>
           <td>4</td>
           <td>
-            <button class="edit-btn">Edit</button>
+            <button class="edit-btn" onclick="editStudent(this)">Edit</button>
             <button class="delete-btn" onclick="confirmDelete(this)">Delete</button>
           </td>
         </tr>
@@ -150,25 +150,142 @@
           <td>Intellectual Disability</td>
           <td>3</td>
           <td>
-            <button class="edit-btn">Edit</button>
+            <button class="edit-btn" onclick="editStudent(this)">Edit</button>
             <button class="delete-btn" onclick="confirmDelete(this)">Delete</button>
           </td>
         </tr>
       </tbody>
     </table>
 
+    <!-- Add Student Modal -->
+    <div id="addStudentModal" class="modal">
+      <div class="modal-content animate">
+        <span class="close" onclick="closeForm()">&times;</span>
+        <h3 class="form-title">Add New Student</h3>
+        <form id="studentForm">
+          <label for="studentNo">Student No.</label>
+          <input type="text" id="studentNo" placeholder="Enter student number" required>
+
+          <label for="name">Name</label>
+          <input type="text" id="name" placeholder="Enter student name" required>
+
+          <label for="birthday">Birthday</label>
+          <input type="date" id="birthday" required>
+
+          <label for="age">Age</label>
+          <input type="number" id="age" required>
+
+          <label for="address">Address</label>
+          <input type="text" id="address" placeholder="Enter address" required>
+
+          <label for="contact">Contact</label>
+          <input type="text" id="contact" placeholder="Enter contact number" required>
+
+          <label for="parentGuardian">Parent/Guardian</label>
+          <input type="text" id="parentGuardian" placeholder="Enter parent/guardian" required>
+
+          <label for="diagnosis">Diagnosis</label>
+          <input type="text" id="diagnosis" placeholder="Enter diagnosis" required>
+
+          <label for="session">Session</label>
+          <input type="number" id="session" required>
+
+          <button type="button" onclick="addStudent()">Add Student</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Edit Student Modal -->
+    <div id="editStudentModal" class="modal">
+      <div class="modal-content animate">
+        <span class="close" onclick="closeEditForm()">&times;</span>
+        <h3 class="form-title">Edit Student Information</h3>
+        <form id="editStudentForm">
+          <label for="editStudentNo">Student No.</label>
+          <input type="text" id="editStudentNo" required>
+
+          <label for="editName">Name</label>
+          <input type="text" id="editName" required>
+
+          <label for="editBirthday">Birthday</label>
+          <input type="date" id="editBirthday" required>
+
+          <label for="editAge">Age</label>
+          <input type="number" id="editAge" required>
+
+          <label for="editAddress">Address</label>
+          <input type="text" id="editAddress" required>
+
+          <label for="editContact">Contact</label>
+          <input type="text" id="editContact" required>
+
+          <label for="editParentGuardian">Parent/Guardian</label>
+          <input type="text" id="editParentGuardian" required>
+
+          <label for="editDiagnosis">Diagnosis</label>
+          <input type="text" id="editDiagnosis" required>
+
+          <label for="editSession">Session</label>
+          <input type="number" id="editSession" required>
+
+          <button type="button" onclick="saveEditStudent()">Save Changes</button>
+        </form>
+      </div>
+    </div>
+
     <script>
       let deletedRow = null;
       let deletedIndex = null;
+      let currentEditRow = null;
 
       // Function to open the add student form
       function openForm() {
-        document.getElementById("addStudentForm").style.display = "block";
+        document.getElementById("addStudentModal").style.display = "block";
       }
 
       // Function to close the add student form
       function closeForm() {
-        document.getElementById("addStudentForm").style.display = "none";
+        document.getElementById("addStudentModal").style.display = "none";
+      }
+
+      // Function to open the edit student form
+      function editStudent(button) {
+        currentEditRow = button.parentNode.parentNode;
+        const cells = currentEditRow.getElementsByTagName('td');
+
+        document.getElementById("editStudentNo").value = cells[0].textContent;
+        document.getElementById("editName").value = cells[1].textContent;
+        document.getElementById("editBirthday").value = new Date(cells[2].textContent).toISOString().split('T')[0];
+        document.getElementById("editAge").value = cells[3].textContent;
+        document.getElementById("editAddress").value = cells[4].textContent;
+        document.getElementById("editContact").value = cells[5].textContent;
+        document.getElementById("editParentGuardian").value = cells[6].textContent;
+        document.getElementById("editDiagnosis").value = cells[7].textContent;
+        document.getElementById("editSession").value = cells[8].textContent;
+
+        document.getElementById("editStudentModal").style.display = "block";
+      }
+
+      // Function to close the edit student form
+      function closeEditForm() {
+        document.getElementById("editStudentModal").style.display = "none";
+      }
+
+      // Function to save the edited student information
+      function saveEditStudent() {
+        const cells = currentEditRow.getElementsByTagName('td');
+        
+        cells[0].textContent = document.getElementById("editStudentNo").value;
+        cells[1].textContent = document.getElementById("editName").value;
+        cells[2].textContent = new Date(document.getElementById("editBirthday").value).toLocaleDateString();
+        cells[3].textContent = document.getElementById("editAge").value;
+        cells[4].textContent = document.getElementById("editAddress").value;
+        cells[5].textContent = document.getElementById("editContact").value;
+        cells[6].textContent = document.getElementById("editParentGuardian").value;
+        cells[7].textContent = document.getElementById("editDiagnosis").value;
+        cells[8].textContent = document.getElementById("editSession").value;
+
+        closeEditForm();
       }
 
       // Function to add a new student to the table
@@ -203,7 +320,7 @@
           <td>${diagnosis}</td>
           <td>${session}</td>
           <td>
-            <button class="edit-btn">Edit</button>
+            <button class="edit-btn" onclick="editStudent(this)">Edit</button>
             <button class="delete-btn" onclick="confirmDelete(this)">Delete</button>
           </td>
         `;
@@ -312,18 +429,15 @@
         }
       }
 
-      // Close the dropdown when clicking outside of it
-      window.onclick = function(event) {
-        if (!event.target.matches('.dropdown-btn') && !event.target.matches('.sub-dropdown-btn')) {
-          closeDropdowns();
-        }
-      }
-
       // Close the modal if clicked outside
       window.onclick = function(event) {
-        const modal = document.getElementById("addStudentForm");
-        if (event.target == modal) {
-          modal.style.display = "none";
+        const addModal = document.getElementById("addStudentModal");
+        const editModal = document.getElementById("editStudentModal");
+        if (event.target == addModal) {
+          addModal.style.display = "none";
+        }
+        if (event.target == editModal) {
+          editModal.style.display = "none";
         }
       };
     </script>

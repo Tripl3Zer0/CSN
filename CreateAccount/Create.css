@@ -8,7 +8,7 @@ html, body {
   width: 100%;
   height: 100%;
   font-family: 'Montserrat', sans-serif;
-  overflow: hidden; /* Prevent horizontal scrolling */
+  overflow: hidden;
 }
 
 /* Main Container */
@@ -22,8 +22,6 @@ html, body {
   background-size: cover;
   padding-top: 50px;
   padding-bottom: 50px;
-  overflow: hidden;
-  animation: backgroundFade 2s ease-in-out;
 }
 
 /* Top Banner */
@@ -78,6 +76,7 @@ html, body {
   right: 70px;
 }
 
+/* Animations */
 @keyframes fadeIn {
     0% { opacity: 0; }
     100% { opacity: 1; }
@@ -156,12 +155,7 @@ html, body {
     transform: translateY(-3px);
 }
 
-/* Keyframes for Background Animation */
-@keyframes backgroundFade {
-    0% { background-position: top left; }
-    100% { background-position: bottom right; }
-}
-
+/* Request Code Link */
 .right-align {
     text-align: right;
     margin-bottom: 20px;
@@ -177,6 +171,7 @@ html, body {
     text-decoration: underline;
 }
 
+/* Error Message Styling */
 #error-message {
   font-weight: bold;
   color: red;

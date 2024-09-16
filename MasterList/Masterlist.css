@@ -16,7 +16,7 @@ html, body {
   width: 97vw;
   height: 100px;
   background-image: linear-gradient(to bottom left,rgb(255, 255, 255), rgb(155, 155, 155));
-  background-color: #000; /* Black line */
+  background-color: #000;
   top: 0;
   left: 0;
   z-index: 2;
@@ -41,7 +41,7 @@ html, body {
   background-position: center;
   position: absolute;
   right: 20px;
-  top: 30px; /* Adjust to align with the banner */
+  top: 30px;
 }
 
 /* Button that triggers the dropdown */
@@ -351,11 +351,14 @@ tr:nth-child(even) {
   position: fixed; 
   z-index: 1; 
   left: 0;
-  top: 0;
+  top: 20px;
   width: 100%; 
   height: 100%; 
   overflow: auto; 
   background-color: rgba(0,0,0,0.4);
+  text-align: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .modal-content {
@@ -398,34 +401,25 @@ tr:nth-child(even) {
   margin-bottom: 20px;
 }
 
-/* Styling for Add Student Form */
-#addStudentForm {
-  background-color: #ffffff;
-  padding: 20px;
-  border: 1px solid #ddd;
-  width: 50%;
-  margin: 20px auto;
-  display: none; /* Hidden by default */
-  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+/* Form styling for Add and Edit Student */
+.form-group {
+  margin-bottom: 15px;
 }
 
-#addStudentForm h3 {
-  text-align: center;
-}
-
-#addStudentForm label {
+.form-group label {
   display: block;
-  margin: 10px 0 5px;
+  margin-bottom: 5px;
+  font-weight: bold;
 }
 
-#addStudentForm input {
+.form-group input {
   width: calc(100% - 20px);
   padding: 8px;
-  margin-bottom: 10px;
   border: 1px solid #ddd;
+  border-radius: 5px;
 }
 
-#addStudentForm button {
+.modal-content button {
   display: block;
   width: 100%;
   padding: 10px;
@@ -433,8 +427,9 @@ tr:nth-child(even) {
   color: white;
   border: none;
   cursor: pointer;
+  margin-top: 10px;
 }
 
-#addStudentForm button:hover {
+.modal-content button:hover {
   background-color: #45a049;
 }

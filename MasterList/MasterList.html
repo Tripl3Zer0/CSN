@@ -163,32 +163,50 @@
         <span class="close" onclick="closeForm()">&times;</span>
         <h3 class="form-title">Add New Student</h3>
         <form id="studentForm">
-          <label for="studentNo">Student No.</label>
-          <input type="text" id="studentNo" placeholder="Enter student number" required>
+          <div class="form-group">
+            <label for="studentNo">Student No.</label>
+            <input type="text" id="studentNo" placeholder="Enter student number" required>
+          </div>
 
-          <label for="name">Name</label>
-          <input type="text" id="name" placeholder="Enter student name" required>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Enter student name" required>
+          </div>
 
-          <label for="birthday">Birthday</label>
-          <input type="date" id="birthday" required>
+          <div class="form-group">
+            <label for="birthday">Birthday</label>
+            <input type="date" id="birthday" required>
+          </div>
 
-          <label for="age">Age</label>
-          <input type="number" id="age" required>
+          <div class="form-group">
+            <label for="age">Age</label>
+            <input type="number" id="age" required>
+          </div>
 
-          <label for="address">Address</label>
-          <input type="text" id="address" placeholder="Enter address" required>
+          <div class="form-group">
+            <label for="address">Address</label>
+            <input type="text" id="address" placeholder="Enter address" required>
+          </div>
 
-          <label for="contact">Contact</label>
-          <input type="text" id="contact" placeholder="Enter contact number" required>
+          <div class="form-group">
+            <label for="contact">Contact</label>
+            <input type="text" id="contact" placeholder="Enter contact number" required>
+          </div>
 
-          <label for="parentGuardian">Parent/Guardian</label>
-          <input type="text" id="parentGuardian" placeholder="Enter parent/guardian" required>
+          <div class="form-group">
+            <label for="parentGuardian">Parent/Guardian</label>
+            <input type="text" id="parentGuardian" placeholder="Enter parent/guardian" required>
+          </div>
 
-          <label for="diagnosis">Diagnosis</label>
-          <input type="text" id="diagnosis" placeholder="Enter diagnosis" required>
+          <div class="form-group">
+            <label for="diagnosis">Diagnosis</label>
+            <input type="text" id="diagnosis" placeholder="Enter diagnosis" required>
+          </div>
 
-          <label for="session">Session</label>
-          <input type="number" id="session" required>
+          <div class="form-group">
+            <label for="session">Session</label>
+            <input type="number" id="session" required>
+          </div>
 
           <button type="button" onclick="addStudent()">Add Student</button>
         </form>
@@ -201,32 +219,50 @@
         <span class="close" onclick="closeEditForm()">&times;</span>
         <h3 class="form-title">Edit Student Information</h3>
         <form id="editStudentForm">
-          <label for="editStudentNo">Student No.</label>
-          <input type="text" id="editStudentNo" required>
+          <div class="form-group">
+            <label for="editStudentNo">Student No.</label>
+            <input type="text" id="editStudentNo" required>
+          </div>
 
-          <label for="editName">Name</label>
-          <input type="text" id="editName" required>
+          <div class="form-group">
+            <label for="editName">Name</label>
+            <input type="text" id="editName" required>
+          </div>
 
-          <label for="editBirthday">Birthday</label>
-          <input type="date" id="editBirthday" required>
+          <div class="form-group">
+            <label for="editBirthday">Birthday</label>
+            <input type="date" id="editBirthday" required>
+          </div>
 
-          <label for="editAge">Age</label>
-          <input type="number" id="editAge" required>
+          <div class="form-group">
+            <label for="editAge">Age</label>
+            <input type="number" id="editAge" required>
+          </div>
 
-          <label for="editAddress">Address</label>
-          <input type="text" id="editAddress" required>
+          <div class="form-group">
+            <label for="editAddress">Address</label>
+            <input type="text" id="editAddress" required>
+          </div>
 
-          <label for="editContact">Contact</label>
-          <input type="text" id="editContact" required>
+          <div class="form-group">
+            <label for="editContact">Contact</label>
+            <input type="text" id="editContact" required>
+          </div>
 
-          <label for="editParentGuardian">Parent/Guardian</label>
-          <input type="text" id="editParentGuardian" required>
+          <div class="form-group">
+            <label for="editParentGuardian">Parent/Guardian</label>
+            <input type="text" id="editParentGuardian" required>
+          </div>
 
-          <label for="editDiagnosis">Diagnosis</label>
-          <input type="text" id="editDiagnosis" required>
+          <div class="form-group">
+            <label for="editDiagnosis">Diagnosis</label>
+            <input type="text" id="editDiagnosis" required>
+          </div>
 
-          <label for="editSession">Session</label>
-          <input type="number" id="editSession" required>
+          <div class="form-group">
+            <label for="editSession">Session</label>
+            <input type="number" id="editSession" required>
+          </div>
 
           <button type="button" onclick="saveEditStudent()">Save Changes</button>
         </form>
